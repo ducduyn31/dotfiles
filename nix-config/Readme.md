@@ -44,7 +44,7 @@ Make sure to modify the paths as per your directory structure if needed.
 
 If you need to uninstall Nix from your system, follow these steps:
 
-### 1. Edit `/etc/zshrc`, `/etc/bashrc`, and `/etc/bash.bashrc` and remove these lines:
+### 1. Edit `/etc/zshrc`, `/etc/zsh/zshrc`,  `/etc/profile.d/nix.sh`, `/etc/bashrc`, and `/etc/bash.bashrc` and remove these lines:
 
 ```
 # Nix
