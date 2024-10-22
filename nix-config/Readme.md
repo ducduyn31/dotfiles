@@ -13,7 +13,7 @@ curl -L https://nixos.org/nix/install | sh
 Follow the on-screen instructions to complete the installation. After installation, ensure that your shell is properly configured by running:
 
 ```bash
-. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 ```
 
 Or just open a new terminal and this will automatically sourced
