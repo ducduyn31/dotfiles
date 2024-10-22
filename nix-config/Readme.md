@@ -26,22 +26,6 @@ Next, clone this repository to your home directory (or a location of your choice
 git clone git@github.com:ducduyn31/dotfiles.git
 ```
 
-### 3. Set Up Nix Configurations
-
-Navigate to the `nix-config` folder and link the Nix configuration files to the appropriate locations on your system:
-
-```bash
-cd ~/.dotfiles/nix-config
-```
-
-You can use the following commands to create symbolic links to these configuration files:
-
-```bash
-ln -s ~/.dotfiles/nix-config/config.nix ~/.config/nixpkgs/config.nix
-```
-
-Make sure to modify the paths as per your directory structure if needed.
-
 ## Uninstalling Nix
 
 If you need to uninstall Nix from your system, follow these steps:
