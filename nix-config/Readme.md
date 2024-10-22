@@ -31,7 +31,7 @@ git clone git@github.com:ducduyn31/dotfiles.git
 Add this line to `/etc/nix/nix.conf`
 
 ```
-experimental-features = nix-command flake
+experimental-features = nix-command flakes
 ```
 
 ## Uninstalling Nix
