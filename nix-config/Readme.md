@@ -26,6 +26,14 @@ Next, clone this repository to your home directory (or a location of your choice
 git clone git@github.com:ducduyn31/dotfiles.git
 ```
 
+### 3. Enable flakes
+
+Add this line to `/etc/nix/nix.conf`
+
+```
+experimental-features = nix-command flake
+```
+
 ## Uninstalling Nix
 
 If you need to uninstall Nix from your system, follow these steps:
