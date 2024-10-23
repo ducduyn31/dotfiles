@@ -1,5 +1,7 @@
 # Nix Configuration
 
+This configuration is tailored to my personal preferences and is intended for macOS on my Mac M1.
+
 ## Setup Nix
 
 ### 1. Install Nix
@@ -10,90 +12,37 @@ To install Nix on MacOS, run the following command in your terminal:
 curl -L https://nixos.org/nix/install | sh
 ```
 
-Follow the on-screen instructions to complete the installation. After installation, ensure that your shell is properly configured by running:
+Follow the on-screen instructions to complete the installation. Once installed, you need to configure your shell environment. You can do this by running:
 
 ```bash
 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 ```
 
-Or just open a new terminal and this will automatically sourced
+Alternatively, simply open a new terminal, and the configuration will be automatically sourced.
 
 ### 2. Clone this repository
 
-Next, clone this repository to your home directory (or a location of your choice):
+Clone this repository to your home directory or another location of your choice to access the necessary configuration files:
 
 ```bash
 git clone git@github.com:ducduyn31/dotfiles.git
 ```
 
-### 3. Enable flakes
+### 3. Install `nix-darwin`
 
-Add this line to `/etc/nix/nix.conf`
-
-```
-experimental-features = nix-command flakes
-```
-
-## Uninstalling Nix
-
-If you need to uninstall Nix from your system, follow these steps:
-
-### 1. Edit `/etc/zshrc`, `/etc/zsh/zshrc`,  `/etc/profile.d/nix.sh`, `/etc/bashrc`, and `/etc/bash.bashrc` and remove these lines:
-
-```
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-```
-
-### 2. Stop and remove the Nix daemon services:
+`nix-darwin` is a tool that allows you to manage macOS settings using Nix. To install it, run the following command:
 
 ```bash
-sudo launchctl unload /Library/LaunchDaemons/org.nixos.nix-daemon.plist
-sudo rm /Library/LaunchDaemons/org.nixos.nix-daemon.plist
-sudo launchctl unload /Library/LaunchDaemons/org.nixos.darwin-store.plist
-sudo rm /Library/LaunchDaemons/org.nixos.darwin-store.plist
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.dotfiles/nix-config#daniel
 ```
 
-### 3. Remove the `nixbld` group and the `_nixbuildN` users:
+After running this command, either source the session again or open a new terminal.
 
-```bash
-sudo dscl . -delete /Groups/nixbld
-for u in $(sudo dscl . -list /Users | grep _nixbld); do sudo dscl . -delete /Users/$u; done
-```
-
-### 4. Remove any lines that look like this in fstab using:
-
-```bash
-sudo vifs
-```
-
-Look for lines like this and delete:
-
-```
-UUID=<uuid> /nix apfs rw,noauto,nobrowse,suid,owners
-```
-
-### 5. Remove synthetic.conf
-
-```bash
-sudo rm /etc/synthetic.conf
-```
-
-### 6. Remove the files Nix added to your system:
-
-```bash
-sudo rm -rf /etc/nix /var/root/.nix-profile /var/root/.nix-defexpr /var/root/.nix-channels ~/.nix-profile ~/.nix-defexpr ~/.nix-channels
-```
-
-### 7. Remove the Nix Store volume:
-
-```bash
-sudo diskutil apfs deleteVolume /nix
-```
+**Note:** The configuration file references a profile named daniel. You may need to modify the flake.nix file to match your setup before running the command.
 
 
+# Additional Documentation
 
-
+| Document                                                       | Description                                         |
+|----------------------------------------------------------------|-----------------------------------------------------|
+| [UNINSTALLING-INSTRUCTIONS](docs/UNINSTALLING-INSTRUCTIONS.md) | Instructions for uninstalling Nix from your system. |
