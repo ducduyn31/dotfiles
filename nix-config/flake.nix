@@ -24,6 +24,7 @@
 		# Utils for cli
         pkgs.tree
 		pkgs.zenith
+		pkgs.nmap
 
 		# Java tools
 		pkgs.maven
