@@ -25,6 +25,7 @@
         pkgs.tree
 		pkgs.terraform
 		pkgs.terragrunt
+		pkgs.kubernetes-helm
 
 		# GUI apps
         pkgs.mkalias
