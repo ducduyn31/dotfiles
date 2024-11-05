@@ -12,14 +12,6 @@
 	  inputs.nixpkgs.follows = "nixpkgs";
 	};
 	nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-	homebrew-core = {
-	  url = "github:homebrew/homebrew-core";
-	  flake = false;
-	};
-	homebrew-cask = {
-	  url = "github:homebrew/homebrew-cask";
-	  flake = false;
-	};
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew }:
@@ -108,6 +100,16 @@
 
 	  # Set the home directory for danielng
 	  users.users.danielng.home = "/Users/danielng";
+
+	  # Homebrew confing
+	  homebrew = {
+	    enable = true;
+		casks = [
+		  "hammerspoon"
+		  "the-unarchiver"
+		];
+		onActivation.cleanup = "zap";
+	  };
     };
   in
   {
@@ -128,6 +130,7 @@
 		    # Install Homebew under the default prefix
 			enable = true;
 
+			# Apple Sillicon config
 			enableRosetta = true;
 			user = "danielng";
 			
