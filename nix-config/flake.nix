@@ -12,10 +12,22 @@
 	  inputs.nixpkgs.follows = "nixpkgs";
 	};
 	nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+	nixvim = {
+	  url = "github:nix-community/nixvim";
+	  inputs.nixpkgs.follows = "nixpkgs";
+	};
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nixvim }:
   let
+	pkgs = import nixpkgs { system = "aarch64-darwin";  };
+	# Nixvim config
+	nixvimModule = {
+	  inherit pkgs;
+	  module = import ./nixvim-config/default.nix; 
+	};
+	nvim = inputs.nixvim.legacyPackages.aarch64-darwin.makeNixvimWithModule nixvimModule;
+
     configuration = { pkgs, config, ... }: {
 	  
 	  nixpkgs.config.allowUnfree = true;
@@ -25,7 +37,7 @@
       environment.systemPackages = [ 
 		# Must have
         pkgs.vim
-        pkgs.neovim
+		nvim
         pkgs.tmux
 		pkgs.starship
 		pkgs.bat
@@ -103,7 +115,7 @@
 	  # Set the home directory for danielng
 	  users.users.danielng.home = "/Users/danielng";
 
-	  # Homebrew confing
+	  # Homebrew config
 	  homebrew = {
 	    enable = true;
 		brews = [
@@ -116,10 +128,18 @@
 		masApps = {
 		};
 		onActivation.cleanup = "zap";
+		onActivation.upgrade = true;
+		onActivation.autoUpdate = true;
 	  };
+
     };
+
   in
   {
+	checks = {
+	  default = inputs.nixvim.lib.aarch64-darwin.check.mkTestDerivationFromNixvimModule nixvimModule;
+	};
+
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#general
     darwinConfigurations."general" = nix-darwin.lib.darwinSystem {
@@ -150,6 +170,10 @@
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."daniel".pkgs;
+
+	packages = {
+	  default = nvim;
+	};
   };
 }
 
