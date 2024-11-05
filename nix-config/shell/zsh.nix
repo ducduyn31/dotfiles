@@ -15,6 +15,11 @@
     };
 
     initExtra = ''
+      [ -f ~/.env/env.sh ] && source ~/.env/env.sh
+
+      # used for homebrew
+      export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
+
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
       bindkey '^p' history-search-backward
@@ -23,6 +28,7 @@
     '';
 
     shellAliases = {
+      dswitch = "nix run nix-darwin -- switch --flake ~/.dotfiles/nix-config/#darwin";
     };
 
     plugins = [

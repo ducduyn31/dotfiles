@@ -30,6 +30,7 @@
         allowUnfree = true;
       };
       user = "danielng";
+      hostname = "danielng-mbp";
       system = "aarch64-darwin";
 
       pkgs = import nixpkgs { 
@@ -53,8 +54,8 @@
 
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#general
-      darwinConfigurations."general" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#danielng-mbp
+      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
         inherit system;
 
 
@@ -84,6 +85,12 @@
               shell = pkgs.zsh;
             };
 
+            networking = {
+              computerName = hostname;
+              hostName = hostname;
+              localHostName = hostname;
+            };
+
             nix = {
               # Enable flakes
               gc = {
@@ -96,11 +103,6 @@
                 experimental-features = "flakes nix-command";
                 warn-dirty = false;
               };
-            };
-
-            # Add a shell alias for darwin-rebuild switch.
-            environment.shellAliases = {
-              dswitch = "darwin-rebuild switch --flake ~/.dotfiles/nix-config#general";
             };
           })
           home-manager.darwinModules.home-manager {
