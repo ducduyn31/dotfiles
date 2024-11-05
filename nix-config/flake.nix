@@ -95,6 +95,9 @@
       environment.shellAliases = {
         dswitch = "darwin-rebuild switch --flake ~/.dotfiles/nix-config#general";
       };
+
+	  # Set the home directory for danielng
+	  users.users.danielng.home = "/Users/danielng";
     };
   in
   {
