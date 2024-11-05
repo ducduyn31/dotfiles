@@ -20,14 +20,6 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nixvim }:
   let
-	pkgs = import nixpkgs { system = "aarch64-darwin";  };
-	# Nixvim config
-	nixvimModule = {
-	  inherit pkgs;
-	  module = import ./nixvim-config/default.nix; 
-	};
-	nvim = inputs.nixvim.legacyPackages.aarch64-darwin.makeNixvimWithModule nixvimModule;
-
     configuration = { pkgs, config, ... }: {
 	  
 	  nixpkgs.config.allowUnfree = true;
@@ -37,7 +29,6 @@
       environment.systemPackages = [ 
 		# Must have
         pkgs.vim
-		nvim
         pkgs.tmux
 		pkgs.starship
 		pkgs.bat
@@ -128,18 +119,14 @@
 		masApps = {
 		};
 		onActivation.cleanup = "zap";
-		onActivation.upgrade = true;
-		onActivation.autoUpdate = true;
+		onActivation.upgrade = false;
+		onActivation.autoUpdate = false;
 	  };
 
     };
 
   in
   {
-	checks = {
-	  default = inputs.nixvim.lib.aarch64-darwin.check.mkTestDerivationFromNixvimModule nixvimModule;
-	};
-
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#general
     darwinConfigurations."general" = nix-darwin.lib.darwinSystem {
@@ -165,15 +152,16 @@
 			autoMigrate = true;
 		  };
 	    }
+		nixvim.nixDarwinModules.nixvim {
+		  imports = [
+			./nixvim-config
+			];
+		}
 	  ];
     };
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."daniel".pkgs;
-
-	packages = {
-	  default = nvim;
-	};
   };
 }
 
