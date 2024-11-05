@@ -112,6 +112,8 @@
 		  "hammerspoon"
 		  "the-unarchiver"
 		];
+		masApps = {
+		};
 		onActivation.cleanup = "zap";
 	  };
     };
