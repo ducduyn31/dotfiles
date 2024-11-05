@@ -20,6 +20,7 @@
         pkgs.mkalias
         pkgs.neovim
         pkgs.tmux
+        pkgs.tree
         pkgs.alacritty
 		pkgs.obsidian
       ];
