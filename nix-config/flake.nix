@@ -11,9 +11,18 @@
 	  url = "github:nix-community/home-manager";
 	  inputs.nixpkgs.follows = "nixpkgs";
 	};
+	nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+	homebrew-core = {
+	  url = "github:homebrew/homebrew-core";
+	  flake = false;
+	};
+	homebrew-cask = {
+	  url = "github:homebrew/homebrew-cask";
+	  flake = false;
+	};
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew }:
   let
     configuration = { pkgs, config, ... }: {
 	  
@@ -114,6 +123,18 @@
 		  home-manager.backupFileExtension = "backup";
 		  home-manager.users.danielng = import ./danielng.nix;
 		}
+	    nix-homebrew.darwinModules.nix-homebrew {
+		  nix-homebrew = {
+		    # Install Homebew under the default prefix
+			enable = true;
+
+			enableRosetta = true;
+			user = "danielng";
+			
+			# Automatically migrate existing Homebew installations
+			autoMigrate = true;
+		  };
+	    }
 	  ];
     };
 
