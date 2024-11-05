@@ -28,6 +28,7 @@
         pkgs.neovim
         pkgs.tmux
 		pkgs.starship
+		pkgs.bat
 		
 		# Utils for cli
         pkgs.tree
