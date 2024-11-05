@@ -23,6 +23,12 @@
 		
 		# Utils for cli
         pkgs.tree
+		pkgs.zenith
+
+		# Java tools
+		pkgs.maven
+
+		# Infra tools
 		pkgs.terraform
 		pkgs.terragrunt
 		pkgs.kubernetes-helm
