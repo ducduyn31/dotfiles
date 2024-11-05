@@ -20,7 +20,10 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nixvim }:
   let
-    pkgs = import nixpkgs { system = "aarch64-darwin"; };
+    pkgs = import nixpkgs { 
+      system = "aarch64-darwin";
+      config.allowUnfree = true;
+    };
     nixvimModule = {
 	  inherit pkgs;
 	  module = import ./nixvim-config;

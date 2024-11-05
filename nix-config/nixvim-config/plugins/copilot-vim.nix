@@ -4,7 +4,7 @@
 
     settings = {
       filetypes = {
-        "*": true;
+        "*" = true;
       };
     };
   };
