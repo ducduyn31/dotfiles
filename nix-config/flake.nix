@@ -35,7 +35,6 @@
 
 		# GUI apps
         pkgs.mkalias
-        pkgs.alacritty
 		pkgs.obsidian
       ];
 
