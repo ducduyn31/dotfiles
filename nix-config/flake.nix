@@ -106,7 +106,11 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#general
     darwinConfigurations."general" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ 
+	    configuration
+		home-manager.nixosModules.home-manager
+
+	  ];
     };
 
     # Expose the package set, including overlays, for convenience.
