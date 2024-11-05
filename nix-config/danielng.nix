@@ -12,4 +12,21 @@
   programs.starship = {
     enable = true;
   };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        size = 16;
+      };
+      selection.save_to_clipboard = true;
+    };
+  };
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      set-option -g mouse on
+    '';
+  };
 }
