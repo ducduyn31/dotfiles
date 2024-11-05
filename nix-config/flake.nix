@@ -95,21 +95,20 @@
       environment.shellAliases = {
         dswitch = "darwin-rebuild switch --flake ~/.dotfiles/nix-config#general";
       };
-
-	  # Enable Home Manager as a Nix module.
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.users.danielng = import ./danielng.nix;
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#general
     darwinConfigurations."general" = nix-darwin.lib.darwinSystem {
+	  system = "aarch64-darwin";
       modules = [ 
 	    configuration
-		home-manager.nixosModules.home-manager
-
+		home-manager.darwinModules.home-manager {
+		  home-manager.useGlobalPkgs = true;
+		  home-manager.useUserPackages = true;
+		  home-manager.users.danielng = import ./danielng.nix;
+		}
 	  ];
     };
 
