@@ -19,6 +19,18 @@
       font = {
         size = 16;
       };
+      window = {
+        opacity = 0.75;
+        padding = {
+          x = 5;
+          y = 10;
+        };
+        decorations = "Transparent";
+        startup_mode = "SimpleFullscreen";
+      };
+      colors = {
+        transparent_background_colors = true;
+      };
       selection.save_to_clipboard = true;
     };
   };
