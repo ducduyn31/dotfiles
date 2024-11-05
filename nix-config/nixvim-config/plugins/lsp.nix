@@ -93,6 +93,10 @@
       #  enable = true;
       #}
 
+      terraformls = {
+        enable = true;
+      };
+
       lua_ls = {
         enable = true;
 

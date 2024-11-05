@@ -10,6 +10,7 @@
     ./plugins/mini.nix
     ./plugins/treesitter.nix
     ./plugins/copilot-vim.nix
+    # ./plugins/copilot-chat.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
