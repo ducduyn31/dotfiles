@@ -49,7 +49,8 @@
 
 		# GUI apps
         pkgs.mkalias
-		pkgs.obsidian
+		pkgs.obsidian 
+		pkgs.appcleaner
       ];
 
       fonts.packages = [
