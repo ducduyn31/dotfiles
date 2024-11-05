@@ -104,6 +104,9 @@
 	  # Homebrew confing
 	  homebrew = {
 	    enable = true;
+		brews = [
+		  "mas"
+		];
 		casks = [
 		  "hammerspoon"
 		  "the-unarchiver"
