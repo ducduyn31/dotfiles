@@ -28,7 +28,7 @@
     '';
 
     shellAliases = {
-      dswitch = "nix run nix-darwin -- switch --flake ~/.dotfiles/nix-config/#darwin";
+      dswitch = "nix run nix-darwin -- switch --flake ~/.dotfiles/nix-config";
     };
 
     plugins = [
