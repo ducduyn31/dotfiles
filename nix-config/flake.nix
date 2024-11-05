@@ -110,6 +110,7 @@
 		home-manager.darwinModules.home-manager {
 		  home-manager.useGlobalPkgs = true;
 		  home-manager.useUserPackages = true;
+		  home-manager.backupFileExtension = "backup";
 		  home-manager.users.danielng = import ./danielng.nix;
 		}
 	  ];
