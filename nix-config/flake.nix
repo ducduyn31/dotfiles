@@ -3,11 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+	nix-darwin = {
+	  url = "github:LnL7/nix-darwin";
+	  inputs.nixpkgs.follows = "nixpkgs";
+	};
+	home-manager = {
+	  url = "github:nix-community/home-manager";
+	  inputs.nixpkgs.follows = "nixpkgs";
+	};
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     configuration = { pkgs, config, ... }: {
 	  
@@ -20,6 +26,7 @@
         pkgs.vim
         pkgs.neovim
         pkgs.tmux
+		pkgs.starship
 		
 		# Utils for cli
         pkgs.tree
@@ -28,6 +35,10 @@
 
 		# Java tools
 		pkgs.maven
+
+		# Javascript
+		pkgs.pnpm
+		pkgs.supabase-cli
 
 		# Infra tools
 		pkgs.terraform
@@ -82,14 +93,19 @@
 
       # Add a shell alias for darwin-rebuild switch.
       environment.shellAliases = {
-        dswitch = "darwin-rebuild switch --flake ~/.dotfiles/nix-config#daniel";
+        dswitch = "darwin-rebuild switch --flake ~/.dotfiles/nix-config#general";
       };
+
+	  # Enable Home Manager as a Nix module.
+	  home-manager.useGlobalPkgs = true;
+	  home-manager.useUserPackages = true;
+	  home-manager.users.danielng = import ./danielng.nix;
     };
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#daniel
-    darwinConfigurations."daniel" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#general
+    darwinConfigurations."general" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
 
