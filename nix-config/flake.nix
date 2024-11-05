@@ -38,6 +38,7 @@
 
 		# Javascript
 		pkgs.pnpm
+		pkgs.fnm
 		pkgs.supabase-cli
 
 		# Infra tools
