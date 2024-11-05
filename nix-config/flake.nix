@@ -16,11 +16,18 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [ 
+		# Must have
         pkgs.vim
-        pkgs.mkalias
         pkgs.neovim
         pkgs.tmux
+		
+		# Utils for cli
         pkgs.tree
+		pkgs.terraform
+		pkgs.terragrunt
+
+		# GUI apps
+        pkgs.mkalias
         pkgs.alacritty
 		pkgs.obsidian
       ];
