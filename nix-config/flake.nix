@@ -33,15 +33,8 @@
       system = "aarch64-darwin";
 
       pkgs = import nixpkgs { 
-        inherit nixpkgsConfig; 
-        overlays = [
-          (self: super: {
-            nixvim-config = super.nixvim.config {
-              user = user;
-              system = system;
-            };
-          })
-        ];
+        config.allowUnfree = true;
+        system = system;
       };
 
       nixvimModule = {
@@ -73,6 +66,10 @@
           ({ pkgs, inputs, ... }: {
             nixpkgs.config = nixpkgsConfig;
 
+            environment.systemPackages = [
+              nvim
+            ];
+
             # The platform the configuration will be used on.
             nixpkgs.hostPlatform = system;
 
@@ -89,8 +86,6 @@
 
             nix = {
               # Enable flakes
-              package = pkgs.nixFlakes;
-
               gc = {
                 automatic = false;
                 user = user;
@@ -117,15 +112,16 @@
                 inherit inputs;
                 pkgs-zsh-fzf-tab = import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
               };
+              users.${user} = { ...}:
+                with inputs; {
+                  imports = [
+                    ./home-manager
+                    ./shell
+                  ];
+                  home.username = user;
+                  home.stateVersion = "24.05";
+                };
             };
-            users.${user} = { ...}:
-              with inputs; {
-                imports = [
-                  ./home-manager
-                  ./shell
-                ];
-                home.stateVersion = "24.05";
-              };
           }
           nix-homebrew.darwinModules.nix-homebrew {
             nix-homebrew = {

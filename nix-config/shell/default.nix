@@ -8,7 +8,6 @@
     packages = [
       # Must have
       pkgs.vim
-      nvim # Custom
       pkgs.tmux
       pkgs.starship
       pkgs.bat
@@ -29,7 +28,6 @@
       pkgs.httpie
       pkgs.unixtools.watch
       pkgs.tmate
-      pkgs.nnn
 
       # Java/Kotlin tools
       pkgs.gradle
@@ -47,6 +45,7 @@
       pkgs.poetry
 
       # Golang
+      pkgs.go
       pkgs.cue
       pkgs.golangci-lint
 
@@ -54,7 +53,6 @@
       pkgs.terraform
       pkgs.terragrunt
       pkgs.kubectl
-      pkgs.kubernetes-cli
 
       # GUI apps
       pkgs.mkalias
@@ -78,6 +76,7 @@
     sessionVariables = {
       GO111MODULE = "on";
       EDITOR = "nvim";
+      GIT_EDITOR = "nvim";
       VISUAL = "nvim";
       NIXPKGS_ALLOW_UNFREE = "1";
     };
@@ -89,7 +88,6 @@
     jq.enable = true;
     bat.enable = true;
     nnn.enable = true;
-    zenith.enable = true;
 
     fzf = {
       enable = true;
@@ -107,7 +105,6 @@
 
     go = {
       enable = true;
-      packages = pkgs.go_1_22;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ ];
