@@ -53,11 +53,6 @@
       pkgs.terraform
       pkgs.terragrunt
       pkgs.kubectl
-
-      # GUI apps
-      pkgs.mkalias
-      pkgs.obsidian
-      pkgs.appcleaner
     ];
 
     shellAliases = {

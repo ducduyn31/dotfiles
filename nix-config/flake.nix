@@ -69,6 +69,11 @@
 
             environment.systemPackages = [
               nvim
+              # GUI apps
+              pkgs.alacritty
+              pkgs.mkalias
+              pkgs.obsidian
+              pkgs.appcleaner
             ];
 
             # The platform the configuration will be used on.
