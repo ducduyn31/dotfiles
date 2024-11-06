@@ -8,9 +8,10 @@
     ./plugins/lsp.nix
     ./plugins/nvim-cmp.nix
     ./plugins/mini.nix
+    ./plugins/neotest.nix
     ./plugins/treesitter.nix
     ./plugins/copilot-vim.nix
-    # ./plugins/copilot-chat.nix
+    ./plugins/copilot-chat.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
