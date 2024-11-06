@@ -8,7 +8,6 @@
     ./plugins/lsp.nix
     ./plugins/nvim-cmp.nix
     ./plugins/mini.nix
-    ./plugins/neotest.nix
     ./plugins/treesitter.nix
     ./plugins/copilot-vim.nix
     ./plugins/copilot-chat.nix
