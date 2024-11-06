@@ -6,12 +6,12 @@
       enable-normalization-opposite-orientation-for-nested-containers = false
 
       [gaps]
-      inner.horizontal = 15
-      inner.vertical = 15
-      outer.left = 15
-      outer.right = 15
-      outer.top = 15
-      outer.bottom = 15
+      inner.horizontal = 0
+      inner.vertical = 0
+      outer.left = 0
+      outer.right = 0
+      outer.top = 0
+      outer.bottom = 0
 
       [mode.main.binding]
       alt-j = 'focus down'
@@ -28,30 +28,31 @@
       alt-d = 'layout h_accordion tiles' # 'layout tabbed' in i3
       alt-shift-space = 'layout floating tiling'
 
-      alt-q = 'workspace 1'
-      alt-w = 'workspace 2'
-      alt-e = 'workspace 3'
-      alt-r = 'workspace 4'
-      alt-t = 'workspace 5'
+      alt-1 = 'workspace 1'
+      alt-2 = 'workspace 2'
+      alt-3 = 'workspace 3'
+      alt-4 = 'workspace 4'
 
-      alt-shift-q = 'move container to workspace 1'
-      alt-shift-w = 'move container to workspace 2'
-      alt-shift-e = 'move container to workspace 3'
-      alt-shift-r = 'move container to workspace 4'
-      alt-shift-t = 'move container to workspace 5'
+      alt-shift-1 = 'move-node-to-workspace 1'
+      alt-shift-2 = 'move-node-to-workspace 2'
+      alt-shift-3 = 'move-node-to-workspace 3'
+      alt-shift-4 = 'move-node-to-workspace 4'
 
-      alt-shift-c = 'reload'
+      alt-shift-c = 'reload-config'
 
       [workspace-to-monitor-force-assignment]
       1 = 'main'
       2 = 'main'
       3 = 'main'
-      4 = 'main'
-      5 = ['builtin' 'secondary', 'main']
+      4 = ['msi', 'dell', 'builtin', 'secondary', 'main']
 
       [[on-window-detected]]
       if.app-name-regex-substring = 'alacritty'
       run = 'move-node-to-workspace 2'
+
+      [[on-window-detected]]
+      if.app-name-regex-substring = 'arc'
+      run = 'move-node-to-workspace 4'
     '';
   };
 }

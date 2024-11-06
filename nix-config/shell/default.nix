@@ -18,7 +18,6 @@
       pkgs.inetutils
 
       # Utils for cli
-      pkgs.alacritty
       pkgs.tree
       pkgs.zenith
       pkgs.nmap
@@ -41,6 +40,7 @@
       pkgs.supabase-cli
 
       # Python
+      pkgs.pyenv
       pkgs.python3
       pkgs.poetry
 

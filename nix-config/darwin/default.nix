@@ -38,7 +38,7 @@
         tilesize = 50;
         magnification = true;
         launchanim = false;
-        mru-spaces = false;
+        # mru-spaces = false;
         show-recents = false;
         show-process-indicators = true;
         static-only = false;

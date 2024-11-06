@@ -97,6 +97,10 @@
         enable = true;
       };
 
+      yamlls = {
+        enable = true;
+      };
+
       lua_ls = {
         enable = true;
 

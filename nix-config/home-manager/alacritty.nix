@@ -21,10 +21,10 @@
         opacity = 0.75;
         padding = {
           x = 5;
-          y = 10;
+          y = 0;
         };
-        decorations = "Transparent";
-        startup_mode = "SimpleFullscreen";
+        decorations = "Buttonless";
+        startup_mode = "Maximized";
       };
       colors = {
         transparent_background_colors = true;
