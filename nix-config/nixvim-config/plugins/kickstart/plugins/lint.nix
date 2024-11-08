@@ -8,14 +8,14 @@
     lintersByFt = {
       nix = ["nix"];
       markdown = [
-        "markdownlint"
+        # "markdownlint"
         #vale
       ];
       #clojure = ["clj-kondo"];
       #dockerfile = ["hadolint"];
       #inko = ["inko"];
       #janet = ["janet"];
-      json = ["jsonlint"];
+      # json = ["jsonlint"];
       #rst = ["vale"];
       #ruby = ["ruby"];
       #terraform = ["tflint"];

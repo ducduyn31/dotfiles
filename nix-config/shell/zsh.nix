@@ -25,6 +25,9 @@
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
       bindkey '^f' fzf-file-widget
+
+      # Set up fnm
+      eval "$(fnm env --use-on-cd --shell zsh)"
     '';
 
     shellAliases = {

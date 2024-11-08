@@ -9,6 +9,7 @@
       "the-unarchiver"
       "nikitabobko/tap/aerospace" # tiling window manager
       "arc"
+      "spotify"
 
       # communication
       "microsoft-teams"
