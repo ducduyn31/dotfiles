@@ -17,6 +17,15 @@
       pkgs.fzf
       pkgs.inetutils
 
+      # Dependencies
+      pkgs.libjpeg
+      pkgs.libpng
+      pkgs.giflib
+      pkgs.librsvg
+      pkgs.cairo
+      pkgs.pkg-config
+      pkgs.pango
+
       # Utils for cli
       pkgs.tree
       pkgs.zenith
