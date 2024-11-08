@@ -15,7 +15,7 @@
       #dockerfile = ["hadolint"];
       #inko = ["inko"];
       #janet = ["janet"];
-      #json = ["jsonlint"];
+      json = ["jsonlint"];
       #rst = ["vale"];
       #ruby = ["ruby"];
       #terraform = ["tflint"];

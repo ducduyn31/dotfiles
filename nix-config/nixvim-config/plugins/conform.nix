@@ -32,7 +32,7 @@
         #
         # You can use a sublist to tell conform to run *until* a formatter
         # is found
-        # javascript = [ [ "prettierd" "prettier" ] ];
+        javascript = [ [ "prettierd" "prettier" ] ];
       };
     };
   };

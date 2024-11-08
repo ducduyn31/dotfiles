@@ -77,12 +77,12 @@
       # gopls = {
       #  enable = true;
       #}
-      pyright = {
-       enable = true;
-      };
+      # pyright = {
+      #  enable = true;
+      # };
       # rust_analyzer = {
       #  enable = true;
-      #}
+      # };
       # ...etc. See `https://nix-community.github.io/nixvim/plugins/lsp` for a list of pre-configured LSPs
       #
       # Some languages (like typscript) have entire language plugins that can be useful:
@@ -91,11 +91,20 @@
       # But for many setups the LSP (`tsserver`) will work just fine
       # tsserver = {
       #  enable = true;
-      #}
+      # };
 
-      terraformls = {
+      # React
+      cssls = {
         enable = true;
       };
+      html = {
+        enable = true;
+      };
+
+
+      # terraformls = {
+      #   enable = true;
+      # };
 
       yamlls = {
         enable = true;
