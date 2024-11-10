@@ -16,6 +16,7 @@
       pkgs.jq
       pkgs.fzf
       pkgs.inetutils
+      pkgs.lazygit
 
       # Utils for cli
       pkgs.tree

@@ -3,6 +3,7 @@
     enable = true;
     brews = [
       "mas"
+      "sst/tap/sst" # sst
 
       # dependencies
       "pkg-config"
@@ -41,6 +42,7 @@
       "homebrew/services"
       # custom
       "nikitabobko/tap"
+      "sst/tap"
     ];
     onActivation = {
       cleanup = "zap";
