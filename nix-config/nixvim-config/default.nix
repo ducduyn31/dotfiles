@@ -132,6 +132,9 @@
     tabstop = 2;
     shiftwidth = 2;
     softtabstop = 2;
+
+    # Set color column to 80 characters
+    colorcolumn = "80";
   };
 
   # [[ Basic Keymaps ]]
