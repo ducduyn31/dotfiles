@@ -9,7 +9,7 @@
       nix = ["nix"];
       markdown = [
         # "markdownlint"
-        vale
+        # vale
       ];
       #clojure = ["clj-kondo"];
       dockerfile = ["hadolint"];
@@ -19,7 +19,7 @@
       #rst = ["vale"];
       #ruby = ["ruby"];
       #terraform = ["tflint"];
-      text = ["vale"];
+      # text = ["vale"];
     };
 
     # Create autocommand which carries out the actual linting
