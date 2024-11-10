@@ -16,15 +16,7 @@
       pkgs.jq
       pkgs.fzf
       pkgs.inetutils
-
-      # Dependencies
-      pkgs.libjpeg
-      pkgs.libpng
-      pkgs.giflib
-      pkgs.librsvg
-      pkgs.cairo
-      pkgs.pkg-config
-      pkgs.pango
+      pkgs.lazygit
 
       # Utils for cli
       pkgs.tree

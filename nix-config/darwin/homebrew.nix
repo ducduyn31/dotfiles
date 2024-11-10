@@ -3,6 +3,15 @@
     enable = true;
     brews = [
       "mas"
+
+      # dependencies
+      "pkg-config"
+      "cairo"
+      "pango"
+      "libpng"
+      "jpeg"
+      "giflib"
+      "librsvg"
     ];
     casks = [
       "hammerspoon"
