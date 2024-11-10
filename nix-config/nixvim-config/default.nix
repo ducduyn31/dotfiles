@@ -126,6 +126,12 @@
 
     # Set highlight on search, but clear on pressing <Esc> in normal mode
     hlsearch = true;
+
+    # Redefine tab settings
+    expandtab = true;
+    tabstop = 2;
+    shiftwidth = 2;
+    softtabstop = 2;
   };
 
   # [[ Basic Keymaps ]]
