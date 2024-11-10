@@ -2,6 +2,7 @@
   imports = [
     # Plugins
     ./plugins/gitsigns.nix
+    ./plugins/fugitive.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
     ./plugins/conform.nix
