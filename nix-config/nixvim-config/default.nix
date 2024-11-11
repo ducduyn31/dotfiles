@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     # Plugins
 
@@ -26,7 +26,7 @@
     # Utilities
     ./plugins/which-key.nix # Show keybindings
     ./plugins/mini.nix # Various utilities
-    ./plugins/custom/plugins/utils/markview.nix 
+    ./plugins/custom/plugins/utils/markview.nix
     ./plugins/kickstart/plugins/neo-tree.nix # File tree explorer
     # ./plugins/custom/plugins/utils/ufo.nix # Foldings and more
 
@@ -44,9 +44,7 @@
   colorschemes = {
     rose-pine = {
       enable = true;
-      settings = {
-        transparency = true;
-      };
+      settings = { transparency = true; };
     };
   };
 
@@ -162,32 +160,29 @@
       mode = "t";
       key = "<Esc><Esc>";
       action = "<C-\\><C-n>";
-      options = {
-        desc = "Exit terminal mode";
-      };
+      options = { desc = "Exit terminal mode"; };
     }
     # TIP: Disable arrow keys in normal mode
-    /*
-    {
-      mode = "n";
-      key = "<left>";
-      action = "<cmd>echo 'Use h to move!!'<CR>";
-    }
-    {
-      mode = "n";
-      key = "<right>";
-      action = "<cmd>echo 'Use l to move!!'<CR>";
-    }
-    {
-      mode = "n";
-      key = "<up>";
-      action = "<cmd>echo 'Use k to move!!'<CR>";
-    }
-    {
-      mode = "n";
-      key = "<down>";
-      action = "<cmd>echo 'Use j to move!!'<CR>";
-    }
+    /* {
+         mode = "n";
+         key = "<left>";
+         action = "<cmd>echo 'Use h to move!!'<CR>";
+       }
+       {
+         mode = "n";
+         key = "<right>";
+         action = "<cmd>echo 'Use l to move!!'<CR>";
+       }
+       {
+         mode = "n";
+         key = "<up>";
+         action = "<cmd>echo 'Use k to move!!'<CR>";
+       }
+       {
+         mode = "n";
+         key = "<down>";
+         action = "<cmd>echo 'Use j to move!!'<CR>";
+       }
     */
     # Keybinds to make split navigation easier.
     #  Use CTRL+<hjkl> to switch between windows
@@ -197,42 +192,30 @@
       mode = "n";
       key = "<C-h>";
       action = "<C-w><C-h>";
-      options = {
-        desc = "Move focus to the left window";
-      };
+      options = { desc = "Move focus to the left window"; };
     }
     {
       mode = "n";
       key = "<C-l>";
       action = "<C-w><C-l>";
-      options = {
-        desc = "Move focus to the right window";
-      };
+      options = { desc = "Move focus to the right window"; };
     }
     {
       mode = "n";
       key = "<C-j>";
       action = "<C-w><C-j>";
-      options = {
-        desc = "Move focus to the lower window";
-      };
+      options = { desc = "Move focus to the lower window"; };
     }
     {
       mode = "n";
       key = "<C-k>";
       action = "<C-w><C-k>";
-      options = {
-        desc = "Move focus to the upper window";
-      };
+      options = { desc = "Move focus to the upper window"; };
     }
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-  autoGroups = {
-    kickstart-highlight-yank = {
-      clear = true;
-    };
-  };
+  autoGroups = { kickstart-highlight-yank = { clear = true; }; };
 
   # [[ Basic Autocommands ]]
   #  See `:help lua-guide-autocommands`
@@ -242,7 +225,7 @@
     #  Try it with `yap` in normal mode
     #  See `:help vim.highlight.on_yank()`
     {
-      event = ["TextYankPost"];
+      event = [ "TextYankPost" ];
       desc = "Highlight when yanking (copying) text";
       group = "kickstart-highlight-yank";
       callback.__raw = ''
@@ -259,15 +242,11 @@
 
     # Detect tabstop and shiftwidth automatically
     # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
-    sleuth = {
-      enable = true;
-    };
+    sleuth = { enable = true; };
 
     # "gc" to comment visual regions/lines
     # https://nix-community.github.io/nixvim/plugins/comment/index.html
-    comment = {
-      enable = true;
-    };
+    comment = { enable = true; };
 
     # Highlight todo, notes, etc in comments
     # https://nix-community.github.io/nixvim/plugins/todo-comments/index.html
@@ -278,10 +257,11 @@
   };
 
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
-  extraPlugins = with pkgs.vimPlugins; [
-    # Useful for getting pretty icons, but requires a Nerd Font.
-    nvim-web-devicons # TODO: Figure out how to configure using this with telescope
-  ];
+  extraPlugins = with pkgs.vimPlugins;
+    [
+      # Useful for getting pretty icons, but requires a Nerd Font.
+      nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+    ];
 
   # TODO: Figure out where to move this
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre
@@ -295,5 +275,12 @@
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapost
   extraConfigLuaPost = ''
     -- vim: ts=2 sts=2 sw=2 et
+
+    -- Check if dap-python is installed
+    local has_dap_python, dap_python = pcall(require, 'dap-python')
+    if has_dap_python then
+      -- Set keymap to go to test method
+      vim.api.nvim_set_keymap('n', '<leader>dt', '<cmd>lua require("dap-python").test_method()<CR>', { noremap = true, silent = true })
+    end
   '';
 }
