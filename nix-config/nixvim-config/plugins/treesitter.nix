@@ -19,9 +19,7 @@
     #};
 
     settings = {
-      indent = { 
-        enable = true;
-      };
+      indent = { enable = true; };
 
       ensure_installed = [
         "bash"
@@ -33,6 +31,7 @@
         "markdown"
         "vim"
         "vimdoc"
+        "python"
       ];
     };
     #indent = {
