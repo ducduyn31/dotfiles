@@ -3,37 +3,37 @@
     # Plugins
 
     # Git
-    ./plugins/custom/plugins/git/lazygit.nix
-    ./plugins/custom/plugins/git/gitsigns.nix
-    ./plugins/custom/plugins/git/fugitive.nix
+    ./plugins/custom/plugins/git/lazygit.nix # Easy git interface
+    ./plugins/custom/plugins/git/gitsigns.nix # Show git changes in the gutter
+    ./plugins/custom/plugins/git/fugitive.nix # For handling git conflicts
 
     # LSP
-    ./plugins/conform.nix
-    ./plugins/lsp.nix
-    ./plugins/treesitter.nix
-    ./plugins/custom/plugins/lsp/typescript.nix
-    ./plugins/custom/plugins/lsp/none-ls.nix
-    ./plugins/custom/plugins/lsp/trouble.nix
-    ./plugins/kickstart/plugins/lint.nix
-    ./plugins/kickstart/plugins/autopairs.nix
-    ./plugins/kickstart/plugins/debug.nix
+    ./plugins/conform.nix # Various LSP configurations for formatting, linting, etc.
+    ./plugins/lsp.nix # Base LSP configuration
+    ./plugins/treesitter.nix # Treesitter for syntax highlighting
+    ./plugins/custom/plugins/lsp/typescript.nix # TypeScript LSP
+    ./plugins/custom/plugins/lsp/none-ls.nix # LSP for formatting and linting
+    ./plugins/custom/plugins/lsp/trouble.nix # Show LSP errors in a list
+    ./plugins/kickstart/plugins/lint.nix # Linting
+    ./plugins/kickstart/plugins/autopairs.nix # Auto pairs
+    ./plugins/kickstart/plugins/debug.nix # Debugging
 
     # UI
-    ./plugins/telescope.nix
-    ./plugins/kickstart/plugins/indent-blankline.nix
-    ./plugins/custom/plugins/ui/precognition.nix
+    ./plugins/telescope.nix # Fuzzy finder
+    ./plugins/kickstart/plugins/indent-blankline.nix # Indentation lines
+    ./plugins/custom/plugins/ui/precognition.nix # Show location of the next character you type
 
     # Utilities
-    ./plugins/which-key.nix
-    ./plugins/mini.nix
-    ./plugins/custom/plugins/utils/markview.nix
-    ./plugins/kickstart/plugins/neo-tree.nix
-    ./plugins/custom/plugins/utils/ufo.nix
+    ./plugins/which-key.nix # Show keybindings
+    ./plugins/mini.nix # Various utilities
+    ./plugins/custom/plugins/utils/markview.nix 
+    ./plugins/kickstart/plugins/neo-tree.nix # File tree explorer
+    # ./plugins/custom/plugins/utils/ufo.nix # Foldings and more
 
     # Completion
-    ./plugins/nvim-cmp.nix
-    ./plugins/copilot-vim.nix
-    ./plugins/copilot-chat.nix
+    ./plugins/nvim-cmp.nix # Completion
+    ./plugins/copilot-vim.nix # Copilot completion
+    ./plugins/copilot-chat.nix # Copilot chat
   ];
 
   # You can easily change to a different colorscheme.

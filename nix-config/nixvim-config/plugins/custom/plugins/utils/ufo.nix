@@ -1,5 +1,5 @@
 {
-	plugins.nvim-ufo = {
-		enable = true;
-	};
+  plugins.nvim-ufo = {
+    enable = true;
+  };
 }

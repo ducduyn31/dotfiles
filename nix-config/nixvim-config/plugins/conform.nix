@@ -34,22 +34,22 @@
         # is found
 
         # JavaScript
-        javascript = [ [ "prettierd" "prettier" ] ];
-        html = [ [ "prettierd" "prettier" ] ];
-        css = [ [ "prettierd" "prettier" ] ];
-        javascriptreact = [ [ "prettierd" "prettier" ] ];
-        typescript = [ [ "prettierd" "prettier" ] ];
-        typescriptreact = [ [ "prettierd" "prettier" ] ];
-        markdown = [ [ "prettierd" "prettier" ] ];
+        javascript = ["prettierd" "prettier"];
+        html = ["prettierd" "prettier"];
+        css = ["prettierd" "prettier"];
+        javascriptreact = ["prettierd" "prettier"];
+        typescript = ["prettierd" "prettier"];
+        typescriptreact = ["prettierd" "prettier"];
+        markdown = ["prettierd" "prettier"];
 
         # Nix
-        nix = [ [ "nixfmt" ] ];
+        nix = [ "nixfmt" ];
 
         # Terraform
-        terragrunt = [ [ "hclfmt" ] ];
+        terragrunt = [ "hclfmt" ];
 
         # Python
-        python = [ [ "black" "isort" ] ];
+        python = [ "black" "isort" ];
       };
     };
   };

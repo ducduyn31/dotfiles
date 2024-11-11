@@ -7,10 +7,11 @@
     };
     sources = {
       code_actions = {
-        statix.enable = true;
       };
       diagnostics = {
-        statix.enable = true;
+        mypy = {
+          enable = true;
+        };
       };
       formatting = {
         nixfmt = {
@@ -20,11 +21,9 @@
           enable = true;
           settings = ''
             {
-              "extra_args": {
-                "--fast"
-              },
+              extra_args = { "--fast" },
             }
-          ''
+          '';
         };
         prettier = {
           enable = true;

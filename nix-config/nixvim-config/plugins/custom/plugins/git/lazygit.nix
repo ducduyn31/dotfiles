@@ -5,7 +5,7 @@
 
   extraConfigLua = ''
     require('telescope').load_extension('lazygit')
-  ''
+  '';
 
   keymaps = [
     {
