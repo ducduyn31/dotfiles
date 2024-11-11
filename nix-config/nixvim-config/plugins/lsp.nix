@@ -1,28 +1,23 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Dependencies
   #
   # https://nix-community.github.io/nixvim/plugins/cmp-nvim-lsp.html
-  plugins.cmp-nvim-lsp = {
-    enable = true;
-  };
+  plugins.cmp-nvim-lsp = { enable = true; };
 
   # Useful status updates for LSP.
   # https://nix-community.github.io/nixvim/plugins/fidget/index.html
-  plugins.fidget = {
-    enable = true;
-  };
+  plugins.fidget = { enable = true; };
 
-  plugins.lsp-format = {
-    enable = true;
-  };
+  plugins.lsp-format = { enable = true; };
 
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugi#extraplugins
-  extraPlugins = with pkgs.vimPlugins; [
-    # NOTE: This is how you would ad a vim plugin that is not implemented in Nixvim, also see extraConfigLuaPre below
-    # `neodev` configure Lua LSP for your Neovim config, runtime and plugins
-    # used for completion, annotations, and signatures of Neovim apis
-    neodev-nvim
-  ];
+  extraPlugins = with pkgs.vimPlugins;
+    [
+      # NOTE: This is how you would ad a vim plugin that is not implemented in Nixvim, also see extraConfigLuaPre below
+      # `neodev` configure Lua LSP for your Neovim config, runtime and plugins
+      # used for completion, annotations, and signatures of Neovim apis
+      neodev-nvim
+    ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugi#extraconfigluapre
   extraConfigLuaPre = ''
@@ -30,11 +25,7 @@
   '';
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-  autoGroups = {
-    "kickstart-lsp-attach" = {
-      clear = true;
-    };
-  };
+  autoGroups = { "kickstart-lsp-attach" = { clear = true; }; };
 
   # Brief aside: **What is LSP?**
   #
@@ -81,9 +72,8 @@
       # gopls = {
       #  enable = true;
       #}
-      ruff = {
-        enable = true;
-      };
+      pyright = { enable = true; };
+      ruff = { enable = true; };
       # rust_analyzer = {
       #  enable = true;
       # };
@@ -98,30 +88,19 @@
       # };
 
       # React
-      cssls = {
-        enable = true;
-      };
-      html = {
-        enable = true;
-      };
+      cssls = { enable = true; };
+      html = { enable = true; };
       eslint = {
         enable = true;
-        filetypes = [
-          "javascript"
-          "javascriptreact"
-          "typescript"
-          "typescriptreact"
-        ];
+        filetypes =
+          [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
       };
-
 
       # terraformls = {
       #   enable = true;
       # };
 
-      yamlls = {
-        enable = true;
-      };
+      yamlls = { enable = true; };
 
       lua_ls = {
         enable = true;
@@ -131,9 +110,7 @@
         # filetypes = {
         #};
         settings = {
-          completion = {
-            callSnippet = "Replace";
-          };
+          completion = { callSnippet = "Replace"; };
           #diagnostics = {
           #  disable = {
           #    "missing-fields";
@@ -175,18 +152,14 @@
           mode = "n";
           key = "gd";
           action.__raw = "require('telescope.builtin').lsp_definitions";
-          options = {
-            desc = "LSP: [G]oto [D]efinition";
-          };
+          options = { desc = "LSP: [G]oto [D]efinition"; };
         }
         # Find references for the word under your cursor.
         {
           mode = "n";
           key = "gr";
           action.__raw = "require('telescope.builtin').lsp_references";
-          options = {
-            desc = "LSP: [G]oto [R]eferences";
-          };
+          options = { desc = "LSP: [G]oto [R]eferences"; };
         }
         # Jump to the implementation of the word under your cursor.
         #  Useful when your language has ways of declaring types without an actual implementation.
@@ -194,9 +167,7 @@
           mode = "n";
           key = "gI";
           action.__raw = "require('telescope.builtin').lsp_implementations";
-          options = {
-            desc = "LSP: [G]oto [I]mplementation";
-          };
+          options = { desc = "LSP: [G]oto [I]mplementation"; };
         }
         # Jump to the type of the word under your cursor.
         #  Useful when you're not sure what type a variable is and you want to see
@@ -205,9 +176,7 @@
           mode = "n";
           key = "<leader>D";
           action.__raw = "require('telescope.builtin').lsp_type_definitions";
-          options = {
-            desc = "LSP: Type [D]efinition";
-          };
+          options = { desc = "LSP: Type [D]efinition"; };
         }
         # Fuzzy find all the symbols in your current document.
         #  Symbols are things like variables, functions, types, etc.
@@ -215,19 +184,16 @@
           mode = "n";
           key = "<leader>ds";
           action.__raw = "require('telescope.builtin').lsp_document_symbols";
-          options = {
-            desc = "LSP: [D]ocument [S]ymbols";
-          };
+          options = { desc = "LSP: [D]ocument [S]ymbols"; };
         }
         # Fuzzy find all the symbols in your current workspace.
         #  Similar to document symbols, except searches over your entire project.
         {
           mode = "n";
           key = "<leader>ws";
-          action.__raw = "require('telescope.builtin').lsp_dynamic_workspace_symbols";
-          options = {
-            desc = "LSP: [W]orkspace [S]ymbols";
-          };
+          action.__raw =
+            "require('telescope.builtin').lsp_dynamic_workspace_symbols";
+          options = { desc = "LSP: [W]orkspace [S]ymbols"; };
         }
       ];
 
