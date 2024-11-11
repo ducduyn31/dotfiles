@@ -280,7 +280,7 @@
     local has_dap_python, dap_python = pcall(require, 'dap-python')
     if has_dap_python then
       -- Set keymap to go to test method
-      vim.api.nvim_set_keymap('n', '<leader>dt', '<cmd>lua require("dap-python").test_method()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>dtr', '<cmd>lua require("dap-python").test_method()<CR>', { noremap = true, silent = true, desc = 'Go to test method' })
     end
   '';
 }

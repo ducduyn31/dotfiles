@@ -8,19 +8,16 @@
       window = {
         mappings = {
           "\\" = "close_window";
+          "%" = "open_vsplit";
         };
       };
     };
   };
 
   # https://nix-community.github.io/nixvim/keymaps/index.html
-  keymaps = [
-    {
-      key = "\\";
-      action = "<cmd>Neotree reveal<cr>";
-      options = {
-        desc = "NeoTree reveal";
-      };
-    }
-  ];
+  keymaps = [{
+    key = "\\";
+    action = "<cmd>Neotree reveal<cr>";
+    options = { desc = "NeoTree reveal"; };
+  }];
 }
