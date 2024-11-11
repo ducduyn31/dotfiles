@@ -1,0 +1,57 @@
+{
+  plugins.none-ls = {
+    enable = true;
+    enableLspFormat = true;
+    settings = {
+      updateInInsert = true;
+    };
+    sources = {
+      code_actions = {
+        statix.enable = true;
+      };
+      diagnostics = {
+        statix.enable = true;
+      };
+      formatting = {
+        nixfmt = {
+          enable = true;
+        };
+        black = {
+          enable = true;
+          settings = ''
+            {
+              "extra_args": {
+                "--fast"
+              },
+            }
+          ''
+        };
+        prettier = {
+          enable = true;
+          disableTsServerFormatter = true;
+        };
+        stylua = {
+          enable = true;
+        };
+        hclfmt = {
+          enable = true;
+        };
+        isort = {
+          enable = true;
+        };
+      };
+    };
+  };
+
+  keymaps = [
+    {
+      mode = ["n" "v"];
+      key = "<leader>cf";
+      action = "<cmd>lua vim.lsp.buf.format()<CR>";
+      options = {
+        silent = true;
+        desc = "Format";
+      };
+    }
+  ];
+}

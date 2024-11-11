@@ -1,33 +1,39 @@
 {pkgs, ...}: {
   imports = [
     # Plugins
-    ./plugins/gitsigns.nix
-    ./plugins/fugitive.nix
-    ./plugins/which-key.nix
-    ./plugins/telescope.nix
+
+    # Git
+    ./plugins/custom/plugins/git/lazygit.nix
+    ./plugins/custom/plugins/git/gitsigns.nix
+    ./plugins/custom/plugins/git/fugitive.nix
+
+    # LSP
     ./plugins/conform.nix
     ./plugins/lsp.nix
-    ./plugins/nvim-cmp.nix
-    ./plugins/mini.nix
-    ./plugins/markdown-preview.nix
     ./plugins/treesitter.nix
-    ./plugins/copilot-vim.nix
-    ./plugins/copilot-chat.nix
-
-    # NOTE: Add/Configure additional plugins for Kickstart.nixvim
-    #
-    #  Here are some example plugins that I've included in the Kickstart repository.
-    #  Uncomment any of the lines below to enable them (you will need to restart nvim).
-    #
-    ./plugins/kickstart/plugins/debug.nix
-    ./plugins/kickstart/plugins/indent-blankline.nix
+    ./plugins/custom/plugins/lsp/typescript.nix
+    ./plugins/custom/plugins/lsp/none-ls.nix
+    ./plugins/custom/plugins/lsp/trouble.nix
     ./plugins/kickstart/plugins/lint.nix
     ./plugins/kickstart/plugins/autopairs.nix
+    ./plugins/kickstart/plugins/debug.nix
+
+    # UI
+    ./plugins/telescope.nix
+    ./plugins/kickstart/plugins/indent-blankline.nix
+    ./plugins/custom/plugins/ui/precognition.nix
+
+    # Utilities
+    ./plugins/which-key.nix
+    ./plugins/mini.nix
+    ./plugins/custom/plugins/utils/markview.nix
     ./plugins/kickstart/plugins/neo-tree.nix
-    #
-    # NOTE: Configure your own plugins `see https://nix-community.github.io/nixvim/`
-    # Add your plugins to ./plugins/custom/plugins and import them below
-    ./plugins/custom/plugins/typescript.nix
+    ./plugins/custom/plugins/utils/ufo.nix
+
+    # Completion
+    ./plugins/nvim-cmp.nix
+    ./plugins/copilot-vim.nix
+    ./plugins/copilot-chat.nix
   ];
 
   # You can easily change to a different colorscheme.

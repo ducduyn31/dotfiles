@@ -32,7 +32,24 @@
         #
         # You can use a sublist to tell conform to run *until* a formatter
         # is found
+
+        # JavaScript
         javascript = [ [ "prettierd" "prettier" ] ];
+        html = [ [ "prettierd" "prettier" ] ];
+        css = [ [ "prettierd" "prettier" ] ];
+        javascriptreact = [ [ "prettierd" "prettier" ] ];
+        typescript = [ [ "prettierd" "prettier" ] ];
+        typescriptreact = [ [ "prettierd" "prettier" ] ];
+        markdown = [ [ "prettierd" "prettier" ] ];
+
+        # Nix
+        nix = [ [ "nixfmt" ] ];
+
+        # Terraform
+        terragrunt = [ [ "hclfmt" ] ];
+
+        # Python
+        python = [ [ "black" "isort" ] ];
       };
     };
   };
