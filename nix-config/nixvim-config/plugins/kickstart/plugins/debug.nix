@@ -37,14 +37,12 @@
         };
       };
 
-      # Add your own debuggers here
-      dap-go = {
-        enable = true;
-      };
+      dap-virtual-text = { enable = true; };
 
-      dap-python = {
-        enable = true;
-      };
+      # Add your own debuggers here
+      dap-go = { enable = true; };
+
+      dap-python = { enable = true; };
     };
   };
 
@@ -58,9 +56,7 @@
           require('dap').continue()
         end
       '';
-      options = {
-        desc = "Debug: Start/Continue";
-      };
+      options = { desc = "Debug: Start/Continue"; };
     }
     {
       mode = "n";
@@ -70,9 +66,7 @@
           require('dap').step_into()
         end
       '';
-      options = {
-        desc = "Debug: Step Into";
-      };
+      options = { desc = "Debug: Step Into"; };
     }
     {
       mode = "n";
@@ -82,9 +76,7 @@
           require('dap').step_over()
         end
       '';
-      options = {
-        desc = "Debug: Step Over";
-      };
+      options = { desc = "Debug: Step Over"; };
     }
     {
       mode = "n";
@@ -94,9 +86,7 @@
           require('dap').step_out()
         end
       '';
-      options = {
-        desc = "Debug: Step Out";
-      };
+      options = { desc = "Debug: Step Out"; };
     }
     {
       mode = "n";
@@ -106,9 +96,7 @@
           require('dap').toggle_breakpoint()
         end
       '';
-      options = {
-        desc = "Debug: Toggle Breakpoint";
-      };
+      options = { desc = "Debug: Toggle Breakpoint"; };
     }
     {
       mode = "n";
@@ -118,9 +106,25 @@
           require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
         end
       '';
-      options = {
-        desc = "Debug: Set Breakpoint";
-      };
+      options = { desc = "Debug: Set Breakpoint"; };
+    }
+    {
+      mode = "n";
+      key = "<leader>gb";
+      action.__raw = ''
+        function()
+          require('dap').run_to_cursor()
+        end
+      '';
+    }
+    {
+      mode = "n";
+      key = "<leader>?";
+      action.__raw = ''
+        function()
+          require('dapui').eval(nil, { enter = true })
+        end
+      '';
     }
     # Toggle to see last session result. Without this, you can't see session output
     # in case of unhandled exception.
@@ -132,9 +136,7 @@
           require('dapui').toggle()
         end
       '';
-      options = {
-        desc = "Debug: See last session result.";
-      };
+      options = { desc = "Debug: See last session result."; };
     }
   ];
 
