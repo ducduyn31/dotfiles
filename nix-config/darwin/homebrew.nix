@@ -34,8 +34,7 @@
       # productivity
       "raycast"
     ];
-    masApps = {
-    };
+    masApps = { };
     taps = [
       # default
       "homebrew/bundle"

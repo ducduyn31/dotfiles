@@ -2,18 +2,13 @@
   programs.git = {
     enable = true;
 
-    lfs = {
-      enable = true;
-    };
+    lfs = { enable = true; };
 
     delta = {
       enable = true;
-      options = {
-      };
+      options = { };
     };
 
-    includes = [
-      { path = "~/.gitconfig" }
-    ];
-  }
+    includes = [{ path = "~/.gitconfig"; }];
+  };
 }

@@ -1,7 +1,5 @@
 { pkgs, config, ... }: {
-  imports = [
-    ./homebrew.nix
-  ];
+  imports = [ ./homebrew.nix ];
 
   environment = {
     variables = {
@@ -10,21 +8,14 @@
     };
   };
 
-  programs = {
-    zsh.enable = true;
-  };
+  programs = { zsh.enable = true; };
 
-  services = {
-    nix-daemon.enable = true;
-  };
+  services = { nix-daemon.enable = true; };
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
+  fonts.packages =
+    [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
-  security = {
-    pam.enableSudoTouchIdAuth = true;
-  };
+  security = { pam.enableSudoTouchIdAuth = true; };
 
   system = {
     defaults = {

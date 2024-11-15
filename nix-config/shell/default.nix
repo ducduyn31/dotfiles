@@ -14,8 +14,6 @@
       pkgs.fzf
       pkgs.inetutils
       pkgs.lazygit
-      pkgs.gitFull
-      pkgs.delta
 
       # Utils for cli
       pkgs.tree

@@ -54,12 +54,12 @@
       run = 'move-node-to-workspace 2'
 
       [[on-window-detected]]
-      if.app-name-regex-substring = 'freeform'
-      run = 'move-node-to-workspace 3'
+      if.app-name-regex-substring = 'discord'
+      run = 'move-node-to-workspace 4'
 
       [[on-window-detected]]
       if.app-name-regex-substring = 'arc'
-      run = 'move-node-to-workspace 5'
+      run = 'move-node-to-workspace 1'
     '';
   };
 }
