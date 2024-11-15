@@ -1,6 +1,1 @@
-{ ... }: {
-  imports = [
-    ./alacritty.nix
-    ./aerospace.nix
-  ];
-}
+{ ... }: { imports = [ ./alacritty.nix ./aerospace.nix ./git.nix ]; }

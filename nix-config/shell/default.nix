@@ -1,8 +1,5 @@
 { pkgs, ... }: {
-  imports = [
-    ./zsh.nix
-    ./tmux.nix
-  ];
+  imports = [ ./zsh.nix ./tmux.nix ];
 
   home = {
     packages = [
@@ -17,6 +14,8 @@
       pkgs.fzf
       pkgs.inetutils
       pkgs.lazygit
+      pkgs.gitFull
+      pkgs.delta
 
       # Utils for cli
       pkgs.tree
@@ -63,11 +62,7 @@
       mkdir = "mkdir -p";
     };
 
-    sessionPath = [
-      "$HOME/go/bin"
-      "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
-    ];
+    sessionPath = [ "$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];
 
     sessionVariables = {
       GO111MODULE = "on";
@@ -88,16 +83,12 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand = "fd --type f --follow --exclude .git --exclude node_modules --exclude .vim --exclude .cache --exclude vendor";
-      defaultOptions = [
-        "--border sharp"
-        "--inline-info"
-      ];
+      defaultCommand =
+        "fd --type f --follow --exclude .git --exclude node_modules --exclude .vim --exclude .cache --exclude vendor";
+      defaultOptions = [ "--border sharp" "--inline-info" ];
     };
 
-    starship = {
-      enable = true;
-    };
+    starship = { enable = true; };
 
     go = {
       enable = true;
