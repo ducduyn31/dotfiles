@@ -32,7 +32,7 @@
       alt-2 = 'workspace 2'
       alt-3 = 'workspace 3'
       alt-4 = 'workspace 4'
-      alt-5 = 'workspace 4'
+      alt-5 = 'workspace 5'
 
       alt-shift-1 = 'move-node-to-workspace 1'
       alt-shift-2 = 'move-node-to-workspace 2'
