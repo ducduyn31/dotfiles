@@ -6,7 +6,16 @@
 
     delta = {
       enable = true;
-      options = { };
+      package = pkgs.delta;
+    };
+
+    extraConfig = {
+      merge = { tool = "nvim"; };
+      mergetool = {
+        nvim = { cmd = ''nvim -f -c "Gvdiffsplit!" "$MERGED"''; };
+        prompt = false;
+      };
+      delta = { navigate = true; };
     };
 
     includes = [{ path = "~/.gitconfig"; }];
