@@ -22,6 +22,7 @@
     ./plugins/telescope.nix # Fuzzy finder
     ./plugins/kickstart/plugins/indent-blankline.nix # Indentation lines
     ./plugins/custom/plugins/ui/precognition.nix # Show location of the next character you type
+    ./plugins/custom/plugins/ui/bufferline.nix # Show bufferline
 
     # Utilities
     ./plugins/which-key.nix # Show keybindings
