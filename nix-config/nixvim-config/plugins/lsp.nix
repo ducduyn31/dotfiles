@@ -72,11 +72,16 @@
       # gopls = {
       #  enable = true;
       #}
+      # Python
       pyright = { enable = true; };
       ruff = { enable = true; };
-      # rust_analyzer = {
-      #  enable = true;
-      # };
+
+      # Rust
+      rust_analyzer = {
+        enable = true;
+        installCargo = true;
+        installRustc = true;
+      };
       # ...etc. See `https://nix-community.github.io/nixvim/plugins/lsp` for a list of pre-configured LSPs
       #
       # Some languages (like typscript) have entire language plugins that can be useful:
