@@ -32,6 +32,7 @@
 
     shellAliases = {
       dswitch = "nix run nix-darwin -- switch --flake ~/.dotfiles/nix-config";
+      z = "zellij";
     };
 
     plugins = [
