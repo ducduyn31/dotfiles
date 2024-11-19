@@ -28,6 +28,9 @@
 
       # Set up fnm
       eval "$(fnm env --use-on-cd --shell zsh)"
+
+      # Auto create zellij session
+      eval "$(zellij setup --generate-auto-start zsh)"
     '';
 
     shellAliases = {
