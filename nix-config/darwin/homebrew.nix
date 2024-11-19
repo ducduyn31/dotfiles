@@ -33,6 +33,9 @@
 
       # productivity
       "raycast"
+
+      # streaming
+      "obs"
     ];
     masApps = { };
     taps = [

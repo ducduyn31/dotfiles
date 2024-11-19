@@ -51,6 +51,9 @@
       pkgs.terraform
       pkgs.terragrunt
       pkgs.kubectl
+
+      # Streaming
+      pkgs.keycastr # Visualize keystrokes
     ];
 
     shellAliases = {
