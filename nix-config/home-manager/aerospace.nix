@@ -24,9 +24,15 @@
       alt-shift-h = 'move left'
       alt-shift-l = 'move right'
 
+      alt-shift-minus = 'resize smart -50'
+      alt-shift-equal = 'resize smart +50'
+
       alt-f = 'fullscreen'
       alt-d = 'layout h_accordion tiles' # 'layout tabbed' in i3
       alt-shift-space = 'layout floating tiling'
+      alt-slash = 'layout tiles horizontal vertical'
+      alt-comma = 'layout accordion horizontal vertical'
+      alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
       alt-1 = 'workspace 1'
       alt-2 = 'workspace 2'
