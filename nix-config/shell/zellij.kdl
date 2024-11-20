@@ -111,7 +111,7 @@ keybinds {
     }
     session {
         bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "Ctrl v" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {

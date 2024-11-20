@@ -28,14 +28,15 @@
 
       # Set up fnm
       eval "$(fnm env --use-on-cd --shell zsh)"
-
-      # Auto create zellij session
-      eval "$(zellij setup --generate-auto-start zsh)"
     '';
 
     shellAliases = {
       dswitch = "nix run nix-darwin -- switch --flake ~/.dotfiles/nix-config";
       z = "zellij";
+      za =
+        "zellij attach $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
+      zd =
+        "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
     };
 
     plugins = [

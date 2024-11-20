@@ -11,20 +11,21 @@
       pkgs.ripgrep
       pkgs.fd
       pkgs.jq
-      pkgs.fzf
+      pkgs.fzf # Fuzzy finder
       pkgs.inetutils
       pkgs.lazygit
 
       # Utils for cli
-      pkgs.tree
-      pkgs.zenith
-      pkgs.nmap
-      pkgs.openssl
-      pkgs.wget
-      pkgs.curl
-      pkgs.httpie
+      pkgs.tree # Directory listing
+      pkgs.zenith # System monitoring
+      pkgs.nmap # Network scanner
+      pkgs.openssl # SSL/TLS toolkit
+      pkgs.wget # HTTP client
+      pkgs.curl # HTTP client
+      pkgs.httpie # HTTP client
       pkgs.unixtools.watch
-      pkgs.tmate
+      pkgs.tmate # Terminal sharing
+      pkgs.tealdeer # Better man pages
 
       # Java/Kotlin tools
       pkgs.gradle
