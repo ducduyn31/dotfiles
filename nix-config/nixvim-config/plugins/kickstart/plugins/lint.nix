@@ -6,19 +6,19 @@
 
     # NOTE: Enabling these will cause errors unless these tools are installed
     lintersByFt = {
-      nix = ["nix"];
+      nix = [ "nix" ];
       markdown = [
         # "markdownlint"
         # vale
       ];
       #clojure = ["clj-kondo"];
-      dockerfile = ["hadolint"];
+      dockerfile = [ "hadolint" ];
       #inko = ["inko"];
       #janet = ["janet"];
       # json = ["jsonlint"];
       #rst = ["vale"];
       #ruby = ["ruby"];
-      #terraform = ["tflint"];
+      terraform = [ "tflint" ];
       # text = ["vale"];
     };
 
@@ -31,18 +31,10 @@
         end
       '';
       group = "lint";
-      event = [
-        "BufEnter"
-        "BufWritePost"
-        "InsertLeave"
-      ];
+      event = [ "BufEnter" "BufWritePost" "InsertLeave" ];
     };
   };
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-  autoGroups = {
-    lint = {
-      clear = true;
-    };
-  };
+  autoGroups = { lint = { clear = true; }; };
 }
