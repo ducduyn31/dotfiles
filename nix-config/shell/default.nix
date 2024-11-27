@@ -52,6 +52,7 @@
       pkgs.terraform
       pkgs.terragrunt
       pkgs.kubectl
+      pkgs.tflint
 
       # Streaming
       pkgs.keycastr # Visualize keystrokes
