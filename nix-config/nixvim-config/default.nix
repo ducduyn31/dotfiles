@@ -28,6 +28,7 @@
     ./plugins/which-key.nix # Show keybindings
     ./plugins/mini.nix # Various utilities
     ./plugins/custom/plugins/utils/markview.nix
+    ./plugins/custom/plugins/utils/harpoon.nix
     ./plugins/kickstart/plugins/neo-tree.nix # File tree explorer
     # ./plugins/custom/plugins/utils/ufo.nix # Foldings and more
 
