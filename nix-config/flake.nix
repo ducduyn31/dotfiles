@@ -1,5 +1,5 @@
 {
-  description = "Daniel's nix-darwin configuration";
+  description = "Daniel's configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -28,42 +28,88 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew
     , nixvim, ... }:
     let
-      nixpkgsConfig = { allowUnfree = true; };
       globals = {
         user = "danielng";
         macHostname = "danielng-mbp";
       };
-      system = "aarch64-darwin";
 
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
       # A helper to generate attrset { x86_64-linux = ...; aarch64-darwin = ...; ... }
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      pkgs = import nixpkgs {
-        config.allowUnfree = true;
-        system = system;
-      };
+      nixpkgsConfig = { allowUnfree = true; };
+      pkgsForSystem = system:
+        import nixpkgs {
+          config = nixpkgsConfig;
+          inherit system;
+        };
 
-      nixvimModule = {
-        inherit pkgs;
+      nixvimModule = system: {
+        pkgs = pkgsForSystem system;
         module = import ./nixvim-config;
         extraSpecialArgs = { };
       };
-      nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
-      nvimLib = nixvim.lib.${system};
-
+      nvim = system:
+        nixvim.legacyPackages.${system}.makeNixvimWithModule
+        (nixvimModule system);
+      nvimLib = system: nixvim.lib.${system};
     in {
-      checks = {
-        default = nvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-      };
-
+      checks = forAllSystems (system:
+        nvimLib.check.mkTestDerivationFromNixvimModule (nixvimModule system));
       formatter =
         forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+
+      # Build linux flake using:
+      # $ home-manager switch --flake .#marigold
+      packages = forAllSystems (system:
+        let pkgs = pkgsForSystem system;
+        in {
+          homeConfigurations = {
+            marigold = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [ ./profiles/marigold ];
+              extraSpecialArgs = {
+                inherit globals;
+                nvim = nvim system;
+                pkgs-zsh-fzf-tab =
+                  import inputs.nixpkgs-zsh-fzf-tab { system = system; };
+              };
+            };
+          };
+        });
       # Build darwin flake using:
       # $ darwin-rebuild switch --flake .#rose
       darwinConfigurations = {
-        rose =
-          import ./profiles/rose { inherit inputs globals nixpkgsConfig nvim; };
+        rose = import ./profiles/rose {
+          inherit inputs globals nixpkgsConfig;
+          nvim = nvim "aarch64-darwin";
+        };
       };
+
+      # Development environment
+      devShells = forAllSystems (system:
+        let pkgs = pkgsForSystem system;
+        in {
+
+          # Frontend development
+          # $ nix develop .#frontend -c $SHELL
+          frontend = import ./dev/frontend.nix { inherit pkgs; };
+
+          # Python development
+          # $ nix develop .#python -c $SHELL
+          python = import ./dev/python.nix { inherit pkgs; };
+
+          # Go development
+          # $ nix develop .#go -c $SHELL
+          go = import ./dev/golang.nix { inherit pkgs; };
+
+          # Java/Kotlin development
+          # $ nix develop .#java -c $SHELL
+          java = import ./dev/java.nix { inherit pkgs; };
+
+          # Infrastructure development
+          # $ nix develop .#devops -c $SHELL
+          devops = import ./dev/devops.nix { inherit pkgs; };
+        });
     };
 }

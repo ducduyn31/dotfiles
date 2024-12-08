@@ -27,35 +27,6 @@
       pkgs.tmate # Terminal sharing
       pkgs.tealdeer # Better man pages
 
-      # Java/Kotlin tools
-      pkgs.gradle
-      pkgs.kotlin
-      pkgs.ktlint
-
-      # Javascript
-      pkgs.pnpm
-      pkgs.fnm
-      pkgs.bun
-      pkgs.supabase-cli
-
-      # Python
-      pkgs.pyenv
-      pkgs.python3
-      pkgs.poetry
-
-      # Golang
-      pkgs.go
-      pkgs.cue
-      pkgs.golangci-lint
-
-      # Infrastructure
-      pkgs.terraform
-      pkgs.terragrunt
-      pkgs.kubectl
-      pkgs.tflint
-
-      # Streaming
-      pkgs.keycastr # Visualize keystrokes
     ];
 
     shellAliases = {
@@ -92,12 +63,5 @@
     };
 
     starship = { enable = true; };
-
-    go = {
-      enable = true;
-      goPath = "go";
-      goBin = "go/bin";
-      goPrivate = [ ];
-    };
   };
 }

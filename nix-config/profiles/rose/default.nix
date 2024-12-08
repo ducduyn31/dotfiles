@@ -66,11 +66,49 @@ nix-darwin.lib.darwinSystem {
           pkgs-zsh-fzf-tab =
             import inputs.nixpkgs-zsh-fzf-tab { system = "aarch64-darwin"; };
         };
-        users.${globals.user} = { ... }:
+        users.${globals.user} = { pkgs, ... }:
           with inputs; {
             imports = [ ../../home-manager ../../shell ];
             home.username = globals.user;
             home.stateVersion = "24.05";
+
+            # For this profile, provide the python, frontend, and devops packages
+            # without going to devshell.
+            home.packages = [
+              # Javascript
+              pkgs.pnpm
+              pkgs.fnm
+              pkgs.bun
+              pkgs.supabase-cli
+
+              # Python
+              pkgs.pyenv
+              pkgs.python3
+              pkgs.poetry
+
+              # Golang
+              pkgs.go
+              pkgs.cue
+              pkgs.golangci-lint
+
+              # Infrastructure
+              pkgs.terraform
+              pkgs.terragrunt
+              pkgs.kubectl
+              pkgs.tflint
+
+              # Streaming
+              pkgs.keycastr # Visualize keystrokes
+            ];
+
+            programs = {
+              go = {
+                enable = true;
+                goPath = "go";
+                goBin = "go/bin";
+                goPrivate = [ ];
+              };
+            };
           };
       };
     }
