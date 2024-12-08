@@ -1,5 +1,5 @@
 {
-  description = "Daniel's nix-darwin configuration";
+  description = "Daniel's configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -28,42 +28,50 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew
     , nixvim, ... }:
     let
-      nixpkgsConfig = { allowUnfree = true; };
       globals = {
         user = "danielng";
         macHostname = "danielng-mbp";
       };
-      system = "aarch64-darwin";
 
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
       # A helper to generate attrset { x86_64-linux = ...; aarch64-darwin = ...; ... }
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      pkgs = import nixpkgs {
-        config.allowUnfree = true;
-        system = system;
-      };
+      nixpkgsConfig = { allowUnfree = true; };
+      pkgsForSystem = system:
+        import nixpkgs {
+          config = nixpkgsConfig;
+          inherit system;
+        };
 
-      nixvimModule = {
-        inherit pkgs;
+      nixvimModule = system: {
+        pkgs = pkgsForSystem system;
         module = import ./nixvim-config;
         extraSpecialArgs = { };
       };
-      nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
-      nvimLib = nixvim.lib.${system};
-
+      nvim = system:
+        nixvim.legacyPackages.${system}.makeNixvimWithModule
+        (nixvimModule system);
+      nvimLib = system: nixvim.lib.${system};
     in {
-      checks = {
-        default = nvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-      };
-
+      checks = forAllSystems (system:
+        nvimLib.check.mkTestDerivationFromNixvimModule (nixvimModule system));
       formatter =
         forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+
+      # Build linux flake using:
+      # $ home-manager switch --flake .#marigold
+      homeConfigurations = {
+        marigold = import ./profiles/marigold { inherit inputs globals; };
+      };
+
       # Build darwin flake using:
       # $ darwin-rebuild switch --flake .#rose
       darwinConfigurations = {
-        rose =
-          import ./profiles/rose { inherit inputs globals nixpkgsConfig nvim; };
+        rose = import ./profiles/rose {
+          inherit inputs globals nixpkgsConfig;
+          nvim = nvim "aarch64-darwin";
+        };
       };
     };
 }

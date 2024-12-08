@@ -2,6 +2,14 @@
 
 This guide provides detailed instructions for uninstalling both nix-darwin and Nix from your macOS system. Follow the steps below to ensure a clean removal.
 
+## Uninstalling Home Manager standalone (If you are using non-nix system)
+
+To uninstall Home Manager standalone, run the following command:
+
+```bash
+nix-shell '<home-manager>' -A uninstall
+```
+
 ## Uninstalling nix-darwin
 
 To uninstall nix-darwin, simply run:
@@ -14,7 +22,7 @@ nix --extra-experimental-features "nix-command flakes" run nix-darwin#darwin-uni
 
 If you need to completely uninstall Nix from your system, follow these steps:
 
-### 1. Edit `/etc/zshrc`, `/etc/zsh/zshrc`,  `/etc/profile.d/nix.sh`, `/etc/bashrc`, and `/etc/bash.bashrc` and remove these lines:
+### 1. Edit `/etc/zshrc`, `/etc/zsh/zshrc`, `/etc/profile.d/nix.sh`, `/etc/bashrc`, and `/etc/bash.bashrc` and remove these lines:
 
 ```
 # Nix

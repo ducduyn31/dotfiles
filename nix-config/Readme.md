@@ -28,7 +28,7 @@ Clone this repository to your home directory or another location of your choice 
 git clone git@github.com:ducduyn31/dotfiles.git
 ```
 
-### 3. Install `nix-darwin`
+### 3.1 Install `nix-darwin` (If you are using macOS)
 
 `nix-darwin` is a tool that allows you to manage macOS settings using Nix. To install it, run the following command:
 
@@ -40,9 +40,21 @@ After running this command, either source the session again or open a new termin
 
 **Note:** The configuration file references a profile named daniel. You may need to modify the flake.nix file to match your setup before running the command.
 
+### 3.2 Install `home-manager` (If you are using non-nix system)
+
+`home-manager` lets you manage your user environment using Nix. You can install it via standalone mode for non-nix system:
+
+```bash
+# Adding the channel to download home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+
+# Installing home-manager
+nix-shell '<home-manager>' -A install
+```
 
 # Additional Documentation
 
 | Document                                                       | Description                                         |
-|----------------------------------------------------------------|-----------------------------------------------------|
+| -------------------------------------------------------------- | --------------------------------------------------- |
 | [UNINSTALLING-INSTRUCTIONS](docs/UNINSTALLING-INSTRUCTIONS.md) | Instructions for uninstalling Nix from your system. |
