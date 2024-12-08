@@ -31,7 +31,6 @@
     '';
 
     shellAliases = {
-      dswitch = "nix run nix-darwin -- switch --flake ~/.dotfiles/nix-config";
       z = "zellij";
       za =
         "zellij attach $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
