@@ -29,8 +29,10 @@
     , nixvim, ... }:
     let
       nixpkgsConfig = { allowUnfree = true; };
-      user = "danielng";
-      hostname = "danielng-mbp";
+      globals = {
+        user = "danielng";
+        macHostname = "danielng-mbp";
+      };
       system = "aarch64-darwin";
 
       pkgs = import nixpkgs {
@@ -83,26 +85,26 @@
             };
 
             # Set the home directory
-            users.users.${user} = {
-              home = "/Users/${user}";
+            users.users.${globals.user} = {
+              home = "/Users/${globals.user}";
               shell = pkgs.zsh;
             };
 
             networking = {
-              computerName = hostname;
-              hostName = hostname;
-              localHostName = hostname;
+              computerName = globals.macHostname;
+              hostName = globals.macHostname;
+              localHostName = globals.macHostname;
             };
 
             nix = {
               # Enable flakes
               gc = {
                 automatic = false;
-                user = user;
+                user = globals.user;
               };
 
               settings = {
-                allowed-users = [ user ];
+                allowed-users = [ globals.user ];
                 experimental-features = "flakes nix-command";
                 warn-dirty = false;
               };
@@ -119,10 +121,10 @@
                 pkgs-zsh-fzf-tab =
                   import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
               };
-              users.${user} = { ... }:
+              users.${globals.user} = { ... }:
                 with inputs; {
                   imports = [ ./home-manager ./shell ];
-                  home.username = user;
+                  home.username = globals.user;
                   home.stateVersion = "24.05";
                 };
             };
@@ -135,7 +137,7 @@
 
               # Apple Sillicon config
               enableRosetta = true;
-              user = user;
+              user = globals.user;
 
               # Automatically migrate existing Homebew installations
               autoMigrate = true;
