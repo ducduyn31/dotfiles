@@ -61,6 +61,22 @@ You will then need to enable flake experimental features in your Nix configurati
 experimental-features = nix-command flakes
 ```
 
+### 4. Switch to the new configuration
+
+After installing `nix-darwin` or `home-manager`, you can switch to the new configuration by running the following command:
+
+```bash
+darwin-rebuild switch --flake ~/.dotfiles/nix-config#rose
+```
+
+or
+
+```bash
+home-manager switch --flake ~/.dotfiles/nix-config#marigold
+```
+
+**NOTE**: Make sure you are on the correct user specified in the flake.nix file.
+
 # Additional Documentation
 
 | Document                                                       | Description                                         |
