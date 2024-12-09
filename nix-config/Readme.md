@@ -28,6 +28,12 @@ Clone this repository to your home directory or another location of your choice 
 git clone git@github.com:ducduyn31/dotfiles.git
 ```
 
+or if you prefer HTTPS:
+
+```bash
+git clone https://github.com/ducduyn31/dotfiles.git
+```
+
 ### 3.1 Install `nix-darwin` (If you are using macOS)
 
 `nix-darwin` is a tool that allows you to manage macOS settings using Nix. To install it, run the following command:
