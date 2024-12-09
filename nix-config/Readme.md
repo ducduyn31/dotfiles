@@ -9,7 +9,7 @@ This configuration is tailored to my personal preferences and is intended for ma
 To install Nix on MacOS, run the following command in your terminal:
 
 ```bash
-curl -L https://nixos.org/nix/install | sh
+bash <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
 Follow the on-screen instructions to complete the installation. Once installed, you need to configure your shell environment. You can do this by running:
