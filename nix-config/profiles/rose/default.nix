@@ -75,6 +75,9 @@ nix-darwin.lib.darwinSystem {
             # For this profile, provide the python, frontend, and devops packages
             # without going to devshell.
             home.packages = [
+              # Java
+              pkgs.jdk21_headless
+
               # Javascript
               pkgs.pnpm
               pkgs.fnm
