@@ -14,6 +14,7 @@
       pkgs.fzf # Fuzzy finder
       pkgs.inetutils
       pkgs.lazygit
+      pkgs.gh
 
       # Utils for cli
       pkgs.tree # Directory listing
