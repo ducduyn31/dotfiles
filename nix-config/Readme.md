@@ -39,7 +39,7 @@ git clone https://github.com/ducduyn31/dotfiles.git
 `nix-darwin` is a tool that allows you to manage macOS settings using Nix. To install it, run the following command:
 
 ```bash
-nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.dotfiles/nix-config#rose
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix-config#rose
 ```
 
 After running this command, either source the session again or open a new terminal.
@@ -72,13 +72,13 @@ experimental-features = nix-command flakes
 After installing `nix-darwin` or `home-manager`, you can switch to the new configuration by running the following command:
 
 ```bash
-darwin-rebuild switch --flake ~/.dotfiles/nix-config#rose
+darwin-rebuild switch --flake ~/dotfiles/nix-config#rose
 ```
 
 or
 
 ```bash
-home-manager switch --flake ~/.dotfiles/nix-config#marigold
+home-manager switch --flake ~/dotfiles/nix-config#marigold
 ```
 
 **NOTE**: Make sure you are on the correct user specified in the flake.nix file.
