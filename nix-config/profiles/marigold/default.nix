@@ -8,4 +8,8 @@
     stateVersion = "24.05";
     packages = [ nvim ];
   };
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
 }
