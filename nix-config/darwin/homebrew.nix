@@ -33,6 +33,7 @@
 
       # productivity
       "raycast"
+      "termius" # SSH Manager
 
       # streaming
       "obs"
