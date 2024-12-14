@@ -80,6 +80,7 @@ nix-darwin.lib.darwinSystem {
 
               # Javascript
               pkgs.pnpm
+              pkgs.turbo
               pkgs.fnm
               pkgs.bun
               pkgs.supabase-cli
