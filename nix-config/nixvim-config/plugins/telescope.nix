@@ -44,11 +44,6 @@
         action = "keymaps";
         options = { desc = "[S]earch [K]eymaps"; };
       };
-      "<leader>sf" = {
-        mode = "n";
-        action = "find_files";
-        options = { desc = "[S]earch [F]iles"; };
-      };
       "<leader>ss" = {
         mode = "n";
         action = "builtin";
@@ -88,6 +83,27 @@
     settings = {
       extensions.__raw =
         "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
+      defaults = {
+        file_ignore_patterns = [
+          ".git/"
+          "node_modules/"
+          "vendor/"
+          ".cache/"
+          ".next/"
+          ".DS_Store"
+          ".idea/"
+        ];
+        vimgrep_arguments = [
+          "rg"
+          "--hidden"
+          "--color=never"
+          "--no-heading"
+          "--with-filename"
+          "--line-number"
+          "--column"
+          "--smart-case"
+        ];
+      };
     };
   };
 
@@ -137,6 +153,19 @@
         end
       '';
       options = { desc = "[S]earch [N]eovim files"; };
+    }
+    # Find files with hidden files
+    {
+      mode = "n";
+      key = "<leader>sf";
+      action.__raw = ''
+        function()
+          require('telescope.builtin').find_files {
+            hidden = true
+          }
+        end
+      '';
+      options = { desc = "[S]earch [H]idden files"; };
     }
   ];
 }
