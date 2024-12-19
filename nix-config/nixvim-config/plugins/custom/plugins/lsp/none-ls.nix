@@ -2,21 +2,12 @@
   plugins.none-ls = {
     enable = true;
     enableLspFormat = true;
-    settings = {
-      updateInInsert = true;
-    };
+    settings = { updateInInsert = true; };
     sources = {
-      code_actions = {
-      };
-      diagnostics = {
-        mypy = {
-          enable = true;
-        };
-      };
+      code_actions = { };
+      diagnostics = { mypy = { enable = true; }; };
       formatting = {
-        nixfmt = {
-          enable = true;
-        };
+        nixfmt = { enable = true; };
         black = {
           enable = true;
           settings = ''
@@ -29,28 +20,20 @@
           enable = true;
           disableTsServerFormatter = true;
         };
-        stylua = {
-          enable = true;
-        };
-        hclfmt = {
-          enable = true;
-        };
-        isort = {
-          enable = true;
-        };
+        stylua = { enable = true; };
+        hclfmt = { enable = true; };
+        isort = { enable = true; };
       };
     };
   };
 
-  keymaps = [
-    {
-      mode = ["n" "v"];
-      key = "<leader>cf";
-      action = "<cmd>lua vim.lsp.buf.format()<CR>";
-      options = {
-        silent = true;
-        desc = "Format";
-      };
-    }
-  ];
+  keymaps = [{
+    mode = [ "n" "v" ];
+    key = "<leader>cf";
+    action = "<cmd>lua vim.lsp.buf.format()<CR>";
+    options = {
+      silent = true;
+      desc = "[C]ode [F]ormat";
+    };
+  }];
 }

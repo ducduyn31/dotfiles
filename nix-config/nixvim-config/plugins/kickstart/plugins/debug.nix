@@ -96,7 +96,7 @@
           require('dap').toggle_breakpoint()
         end
       '';
-      options = { desc = "Debug: Toggle Breakpoint"; };
+      options = { desc = "Debug: Toggle [B]reakpoint"; };
     }
     {
       mode = "n";
@@ -106,7 +106,7 @@
           require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
         end
       '';
-      options = { desc = "Debug: Set Breakpoint"; };
+      options = { desc = "Debug: Set [B]reakpoint Condition"; };
     }
     {
       mode = "n";
@@ -116,6 +116,7 @@
           require('dap').run_to_cursor()
         end
       '';
+      options = { desc = "Debug: [G]o to [B]reakpoint"; };
     }
     {
       mode = "n";
@@ -125,6 +126,7 @@
           require('dapui').eval(nil, { enter = true })
         end
       '';
+      options = { desc = "Debug: [?] Evaluate"; };
     }
     # Toggle to see last session result. Without this, you can't see session output
     # in case of unhandled exception.

@@ -12,7 +12,7 @@
       }
       {
         __unkeyed-1 = "<leader>d";
-        group = "[D]ocument";
+        group = "[D]ocument | [D]ebug";
       }
       {
         __unkeyed-1 = "<leader>r";
@@ -28,15 +28,12 @@
       }
       {
         __unkeyed-1 = "<leader>t";
-        group = "[T]oggle";
+        group = "[T]oggle | [T]est";
       }
       {
         __unkeyed-1 = "<leader>h";
         group = "Git [H]unk";
-        mode = [
-          "n"
-          "v"
-        ];
+        mode = [ "n" "v" ];
       }
     ];
   };
