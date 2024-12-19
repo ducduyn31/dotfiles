@@ -69,9 +69,44 @@
       # clangd = {
       #  enable = true;
       #}
-      # gopls = {
-      #  enable = true;
-      #}
+      gopls = {
+        enable = true;
+        settings = {
+          gofumpt = true;
+          codelenses = {
+            generate = true;
+            gc_details = false;
+            regenerate_cgo = true;
+            run_govulncheck = true;
+            test = true;
+            tidy = true;
+            upgrade_dependency = true;
+            vendor = true;
+          };
+          hints = {
+            assignVariableTypes = true;
+            compositeLiteralFields = true;
+            compositeLiteralTypes = true;
+            constantValues = true;
+            functionTypeParameters = true;
+            parameterNames = true;
+            rangeVariableTypes = true;
+          };
+          analyses = {
+            fieldalignment = true;
+            nilness = true;
+            unusedparams = true;
+            unusedwrite = true;
+            useany = true;
+          };
+          usePlaceholders = true;
+          completeUnimported = true;
+          staticcheck = true;
+          directoryFilters =
+            [ "-.git" "-.vscode" "-.idea" "-.vscode-test" "-node_modules" ];
+          semanticTokens = true;
+        };
+      };
       # Python
       pyright = { enable = true; };
       ruff = { enable = true; };
@@ -179,7 +214,7 @@
         #  the definition of its *type*, not where it was *defined*.
         {
           mode = "n";
-          key = "<leader>D";
+          key = "gD";
           action.__raw = "require('telescope.builtin').lsp_type_definitions";
           options = { desc = "LSP: Type [D]efinition"; };
         }
@@ -224,7 +259,7 @@
         };
         # WARN: This is not Goto Definition, this is Goto Declaration.
         #  For example, in C this would take you to the header.
-        "gD" = {
+        "<leader>D" = {
           action = "declaration";
           desc = "LSP: [G]oto [D]eclaration";
         };
