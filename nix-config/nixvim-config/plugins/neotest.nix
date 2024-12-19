@@ -1,9 +1,21 @@
-
 {
   plugins.neotest = {
     enable = true;
 
-    settings = {
+    adapters = {
+      golang = {
+        enable = true;
+        settings = { dap = { justMyCode = false; }; };
+      };
+      playwright = { enable = true; };
+      python = {
+        enable = true;
+        settings = { dap = { justMyCode = false; }; };
+      };
+      jest = { enable = true; };
+      vitest = { enable = true; };
     };
+
+    settings = { };
   };
 }
