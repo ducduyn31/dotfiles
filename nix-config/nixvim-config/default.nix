@@ -17,6 +17,7 @@
     ./plugins/kickstart/plugins/lint.nix # Linting
     ./plugins/kickstart/plugins/autopairs.nix # Auto pairs
     ./plugins/kickstart/plugins/debug.nix # Debugging
+    ./plugins/neotest.nix # Testing
 
     # UI
     ./plugins/telescope.nix # Fuzzy finder
