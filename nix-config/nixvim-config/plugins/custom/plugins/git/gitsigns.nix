@@ -163,7 +163,7 @@
     # Toggles
     {
       mode = "n";
-      key = "<leader>gtb";
+      key = "<leader>tb";
       action.__raw = ''
         function()
           require('gitsigns').toggle_current_line_blame()
@@ -173,7 +173,7 @@
     }
     {
       mode = "n";
-      key = "<leader>gtD";
+      key = "<leader>tD";
       action.__raw = ''
         function()
           require('gitsigns').toggle_deleted()
