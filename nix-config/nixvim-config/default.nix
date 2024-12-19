@@ -23,6 +23,7 @@
     ./plugins/kickstart/plugins/indent-blankline.nix # Indentation lines
     ./plugins/custom/plugins/ui/precognition.nix # Show location of the next character you type
     ./plugins/custom/plugins/ui/bufferline.nix # Show bufferline
+    ./plugins/custom/plugins/ui/lualine.nix # Show statusline at the bottom
 
     # Utilities
     ./plugins/which-key.nix # Show keybindings
