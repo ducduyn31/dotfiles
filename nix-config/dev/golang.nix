@@ -3,6 +3,7 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.go
     pkgs.gotestsum
+    pkgs.delve
     pkgs.cue
     pkgs.golangci-lint
 

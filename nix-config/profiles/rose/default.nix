@@ -93,6 +93,7 @@ nix-darwin.lib.darwinSystem {
               # Golang
               pkgs.go
               pkgs.gotestsum
+              pkgs.delve
               pkgs.cue
               pkgs.golangci-lint
 
