@@ -28,6 +28,7 @@
       pkgs.tmate # Terminal sharing
       pkgs.tealdeer # Better man pages
       pkgs.stow # Symlink Manager
+      pkgs.flyctl # Fly.io CLI
 
     ];
 
