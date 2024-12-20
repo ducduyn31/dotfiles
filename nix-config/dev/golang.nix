@@ -7,6 +7,7 @@ pkgs.mkShell {
     pkgs.delve
     pkgs.cue
     pkgs.golangci-lint
+    pkgs.redocly
 
   ];
   shellHook = ''

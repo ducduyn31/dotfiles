@@ -97,6 +97,7 @@ nix-darwin.lib.darwinSystem {
               pkgs.delve
               pkgs.cue
               pkgs.golangci-lint
+              pkgs.redocly
 
               # Infrastructure
               pkgs.terraform
