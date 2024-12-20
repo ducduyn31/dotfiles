@@ -2,6 +2,7 @@
 pkgs.mkShell {
   buildInputs = [
     pkgs.go
+    pkgs.air
     pkgs.gotestsum
     pkgs.delve
     pkgs.cue
