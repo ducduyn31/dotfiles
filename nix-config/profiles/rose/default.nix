@@ -98,6 +98,7 @@ nix-darwin.lib.darwinSystem {
               pkgs.cue
               pkgs.golangci-lint
               pkgs.redocly
+              pkgs.go-mockery
 
               # Infrastructure
               pkgs.terraform
