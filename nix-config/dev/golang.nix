@@ -9,6 +9,7 @@ pkgs.mkShell {
     pkgs.golangci-lint
     pkgs.redocly
     pkgs.go-mockery
+    pkgs.go-swag
   ];
   shellHook = ''
     echo "
