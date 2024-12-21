@@ -22,7 +22,7 @@
       "spotify"
 
       # communication
-      "microsoft-teams"
+      # "microsoft-teams"
       # "zoom"
       "discord"
 
