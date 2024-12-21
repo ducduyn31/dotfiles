@@ -117,13 +117,8 @@
         installCargo = true;
         installRustc = true;
       };
-      # ...etc. See `https://nix-community.github.io/nixvim/plugins/lsp` for a list of pre-configured LSPs
-      #
-      # Some languages (like typscript) have entire language plugins that can be useful:
-      #    `https://nix-community.github.io/nixvim/plugins/typescript-tools/index.html?highlight=typescript-tools#pluginstypescript-toolspackage`
-      #
-      # But for many setups the LSP (`tsserver`) will work just fine
-      tsserver = { enable = true; };
+
+      ts_ls = { enable = true; };
 
       # React
       cssls = { enable = true; };
