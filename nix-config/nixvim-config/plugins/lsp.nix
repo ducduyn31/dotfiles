@@ -136,6 +136,12 @@
           [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
       };
 
+      # Astro
+      astro = {
+        enable = true;
+        filetypes = [ "astro" ];
+      };
+
       # terraformls = {
       #   enable = true;
       # };
