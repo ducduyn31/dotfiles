@@ -23,6 +23,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew

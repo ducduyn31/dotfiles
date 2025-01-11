@@ -25,6 +25,7 @@
       # "microsoft-teams"
       # "zoom"
       "discord"
+      "ghostty"
 
       # development
       "postman"

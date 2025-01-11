@@ -5,7 +5,7 @@
     homeDirectory =
       builtins.toPath (if pkgs.stdenv.isDarwin then "/Users" else "/home") + "/"
       + globals.user;
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     packages = [ nvim ];
   };
   nix = {

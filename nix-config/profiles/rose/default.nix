@@ -70,7 +70,7 @@ nix-darwin.lib.darwinSystem {
           with inputs; {
             imports = [ ../../home-manager ../../shell ];
             home.username = globals.user;
-            home.stateVersion = "24.05";
+            home.stateVersion = "24.11";
 
             # For this profile, provide the python, frontend, and devops packages
             # without going to devshell.
