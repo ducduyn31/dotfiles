@@ -60,6 +60,10 @@
       run = 'move-node-to-workspace 2'
 
       [[on-window-detected]]
+      if.app-name-regex-substring = 'ghostty'
+      run = 'move-node-to-workspace 2'
+
+      [[on-window-detected]]
       if.app-name-regex-substring = 'discord'
       run = 'move-node-to-workspace 4'
 
