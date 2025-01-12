@@ -1,0 +1,13 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-style = Bold
+font-style-bold = ExtraBold
+font-style-italic = ExtraLight
+font-size = 17
+
+background-opacity = 0.75
+
+window-padding-x = 5
+window-padding-y = 0
+macos-titlebar-style = hidden
+
+theme = dark:rose-pine-moon,light:rose-pine-dawn

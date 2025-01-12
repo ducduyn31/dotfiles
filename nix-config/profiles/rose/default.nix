@@ -13,7 +13,7 @@ nix-darwin.lib.darwinSystem {
       nixpkgs.config = nixpkgsConfig;
 
       environment.systemPackages = [
-        nvim
+        # nvim
         # GUI apps
         pkgs.alacritty
         pkgs.mkalias

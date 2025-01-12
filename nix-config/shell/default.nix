@@ -5,6 +5,7 @@
     packages = [
       # Must have
       pkgs.vim
+      pkgs.neovim
       pkgs.tmux
       pkgs.starship
       pkgs.bat
