@@ -30,7 +30,6 @@
       pkgs.tealdeer # Better man pages
       pkgs.stow # Symlink Manager
       pkgs.flyctl # Fly.io CLI
-
     ];
 
     shellAliases = {
@@ -64,6 +63,13 @@
       defaultCommand =
         "fd --type f --follow --exclude .git --exclude node_modules --exclude .vim --exclude .cache --exclude vendor";
       defaultOptions = [ "--border sharp" "--inline-info" ];
+    };
+
+    gh = {
+      enable = true;
+      extensions = [
+        pkgs.gh-notify
+      ];
     };
 
     starship = { enable = true; };
