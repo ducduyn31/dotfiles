@@ -10,4 +10,5 @@ window-padding-x = 5
 window-padding-y = 0
 macos-titlebar-style = hidden
 
-theme = dark:rose-pine-moon,light:rose-pine-dawn
+# theme = dark:rose-pine-moon,light:rose-pine-dawn
+theme = rose-pine
