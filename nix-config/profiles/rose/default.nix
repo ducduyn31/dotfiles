@@ -105,10 +105,14 @@ nix-darwin.lib.darwinSystem {
               pkgs.terraform
               pkgs.terragrunt
               pkgs.kubectl
+              pkgs.k9s
+              pkgs.stern
+              pkgs.kubectx
               pkgs.tflint
 
               # Streaming
               pkgs.keycastr # Visualize keystrokes
+              pkgs.perl
             ];
 
             programs = {

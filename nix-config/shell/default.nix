@@ -12,6 +12,7 @@
       pkgs.ripgrep
       pkgs.fd
       pkgs.jq
+      pkgs.jqp
       pkgs.fzf # Fuzzy finder
       pkgs.inetutils
       pkgs.lazygit
