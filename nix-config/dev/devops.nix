@@ -1,6 +1,6 @@
 { pkgs, ... }:
 pkgs.mkShell {
-  buildInputs = [ pkgs.terraform pkgs.terragrunt pkgs.kubectl pkgs.k9s pkgs.stern pkgs.kubectx pkgs.tflint ];
+  buildInputs = [ pkgs.terraform pkgs.terragrunt pkgs.kubectl pkgs.k9s pkgs.stern pkgs.kubectx pkgs.tflint pkgs.podman ];
   shellHook = ''
     echo "
     Welcome to the Devops environment!
