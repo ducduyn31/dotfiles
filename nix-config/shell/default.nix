@@ -31,6 +31,7 @@
       pkgs.tealdeer # Better man pages
       pkgs.stow # Symlink Manager
       pkgs.flyctl # Fly.io CLI
+      pkgs.gnuplot # Tools for other software to plots
     ];
 
     shellAliases = {
