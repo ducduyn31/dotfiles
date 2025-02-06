@@ -32,6 +32,7 @@
       pkgs.stow # Symlink Manager
       pkgs.flyctl # Fly.io CLI
       pkgs.gnuplot # Tools for other software to plots
+      pkgs.dwt1-shell-color-scripts # Collection of shell color scripts
     ];
 
     shellAliases = {

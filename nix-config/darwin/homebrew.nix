@@ -22,7 +22,7 @@
       "spotify"
 
       # communication
-      # "microsoft-teams"
+      "microsoft-teams"
       # "zoom"
       "discord"
       "ghostty"
@@ -39,7 +39,9 @@
       # streaming
       "obs"
     ];
-    masApps = { };
+    masApps = {
+      "Apple Configurator" = 1037126344;
+    };
     taps = [
       # default
       "homebrew/bundle"

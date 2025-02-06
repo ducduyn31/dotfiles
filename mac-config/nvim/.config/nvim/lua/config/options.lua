@@ -4,4 +4,10 @@
 vim.g.lazyvim_picker = "fzf"
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.snacks_animate = false
+
+-- Rust
 vim.g.lazyvim_rust_diagnostics = "bacon-ls"
+
+-- Python
+vim.g.lazyvim_python_ruff = "ruff"
+vim.g.lazyvim_python_lsp = "basedpyright"

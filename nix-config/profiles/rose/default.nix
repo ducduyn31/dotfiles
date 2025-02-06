@@ -110,6 +110,7 @@ nix-darwin.lib.darwinSystem {
               pkgs.kubectx
               pkgs.tflint
               pkgs.podman
+              pkgs.podman-desktop
 
               # Streaming
               pkgs.keycastr # Visualize keystrokes
