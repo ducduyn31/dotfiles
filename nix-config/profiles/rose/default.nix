@@ -15,7 +15,7 @@ nix-darwin.lib.darwinSystem {
       environment.systemPackages = [
         # nvim
         # GUI apps
-        pkgs.alacritty
+        pkgs.lmstudio
         pkgs.mkalias
         pkgs.obsidian
         pkgs.appcleaner
