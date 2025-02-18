@@ -10,8 +10,6 @@
 
   programs = { zsh.enable = true; };
 
-  services = { nix-daemon.enable = true; };
-
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
   security = { pam.enableSudoTouchIdAuth = true; };
