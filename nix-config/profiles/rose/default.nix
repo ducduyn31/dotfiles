@@ -18,6 +18,7 @@ nix-darwin.lib.darwinSystem {
         pkgs.mkalias
         pkgs.obsidian
         pkgs.appcleaner
+        pkgs.slack
       ];
 
       # The platform the configuration will be used on.
@@ -100,6 +101,7 @@ nix-darwin.lib.darwinSystem {
               pkgs.go-swag
 
               # Infrastructure
+              pkgs.awscli2
               pkgs.terraform
               pkgs.terragrunt
               pkgs.kubectl
@@ -109,6 +111,7 @@ nix-darwin.lib.darwinSystem {
               pkgs.tflint
               pkgs.podman
               pkgs.podman-desktop
+              pkgs.docker-compose
 
               # Streaming
               pkgs.keycastr # Visualize keystrokes

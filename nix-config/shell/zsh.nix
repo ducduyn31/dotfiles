@@ -13,6 +13,8 @@
       size = 20000;
       share = true;
     };
+    
+    completionInit = "autoload -U compinit && compinit -u";
 
     initExtra = ''
       [ -f ~/.env/env.sh ] && source ~/.env/env.sh
