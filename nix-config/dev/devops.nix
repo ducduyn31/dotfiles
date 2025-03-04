@@ -2,6 +2,7 @@
 pkgs.mkShell {
   buildInputs = [
     pkgs.docker-compose
+    pkgs.pulumi
     pkgs.awscli2
     pkgs.terraform
     pkgs.terragrunt

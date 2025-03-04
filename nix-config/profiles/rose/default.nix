@@ -102,6 +102,7 @@ nix-darwin.lib.darwinSystem {
 
               # Infrastructure
               pkgs.awscli2
+              pkgs.pulumi
               pkgs.terraform
               pkgs.terragrunt
               pkgs.kubectl
