@@ -103,6 +103,7 @@ nix-darwin.lib.darwinSystem {
               # Infrastructure
               pkgs.awscli2
               pkgs.pulumi
+              pkgs.ssm-session-manager-plugin
               pkgs.terraform
               pkgs.terragrunt
               pkgs.kubectl
