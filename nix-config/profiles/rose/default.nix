@@ -18,7 +18,6 @@ nix-darwin.lib.darwinSystem {
         pkgs.mkalias
         pkgs.obsidian
         pkgs.appcleaner
-        pkgs.slack
       ];
 
       # The platform the configuration will be used on.

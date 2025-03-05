@@ -30,6 +30,7 @@
       # development
       "postman"
       "zed"
+      "cursor"
       # "wireshark"
 
       # productivity
