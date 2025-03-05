@@ -83,7 +83,6 @@ nix-darwin.lib.darwinSystem {
               pkgs.fnm
               pkgs.bun
               pkgs.supabase-cli
-              pkgs.yarn
 
               # Python
               pkgs.pyenv

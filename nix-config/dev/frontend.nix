@@ -7,7 +7,6 @@ pkgs.mkShell {
     pkgs.supabase-cli
     pkgs.zsh
     pkgs.turbo
-    pkgs.yarn
   ];
   nativeBuildInputs = [ pkgs.playwright-driver.browsers ];
   shellHook = ''
