@@ -4,6 +4,7 @@ return {
 		version = "*",
 		opts = {
 			keymap = { preset = "super-tab" },
+			fuzzy = { implementation = "lua" },
 		},
 	},
 }
