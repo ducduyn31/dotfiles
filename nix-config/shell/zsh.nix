@@ -13,10 +13,18 @@
       size = 20000;
       share = true;
     };
-    
-    completionInit = "autoload -Uz compinit && compinit -u";
 
     initExtra = ''
+      autoload -U compinit
+      zstyle ':completion:*' use-cache on
+      zstyle ':completion:*' cache-path ~/.zsh_cache
+      compinit -d ~/.zcompdump
+
+      # Fix insecure directories
+      if [[ -d /nix/var/nix/profiles/default/share/zsh ]]; then
+        chmod -R go-w /nix/var/nix/profiles/default/share/zsh &> /dev/null
+      fi
+
       [ -f ~/.env/env.sh ] && source ~/.env/env.sh
 
       # used for homebrew
