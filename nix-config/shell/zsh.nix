@@ -14,7 +14,7 @@
       share = true;
     };
     
-    completionInit = "autoload -U compinit && compinit -u";
+    completionInit = "autoload -Uz compinit && compinit -u";
 
     initExtra = ''
       [ -f ~/.env/env.sh ] && source ~/.env/env.sh

@@ -1,7 +1,14 @@
 { pkgs, ... }:
 pkgs.mkShell {
-  buildInputs =
-    [ pkgs.pnpm pkgs.fnm pkgs.bun pkgs.supabase-cli pkgs.zsh pkgs.turbo ];
+  buildInputs = [
+    pkgs.pnpm
+    pkgs.fnm
+    pkgs.bun
+    pkgs.supabase-cli
+    pkgs.zsh
+    pkgs.turbo
+    pkgs.yarn
+  ];
   nativeBuildInputs = [ pkgs.playwright-driver.browsers ];
   shellHook = ''
     export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
