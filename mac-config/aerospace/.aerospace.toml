@@ -35,12 +35,15 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
 
 alt-shift-c = 'reload-config'
 
@@ -50,6 +53,7 @@ alt-shift-c = 'reload-config'
 3 = 'main'
 4 = 'main'
 5 = ['msi', 'ls32', 'dell', 'builtin', 'secondary', 'main']
+6 = ['msi', 'ls32', 'dell', 'builtin', 'secondary', 'main']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'alacritty'
