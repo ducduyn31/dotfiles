@@ -20,7 +20,6 @@
       "nikitabobko/tap/aerospace" # tiling window manager
       "arc"
       "spotify"
-      "podman-desktop"
 
       # communication
       "microsoft-teams"
@@ -42,9 +41,7 @@
       "obs"
       "cleanshot"
     ];
-    masApps = {
-      "Apple Configurator" = 1037126344;
-    };
+    masApps = { "Apple Configurator" = 1037126344; };
     taps = [
       # default
       "homebrew/bundle"

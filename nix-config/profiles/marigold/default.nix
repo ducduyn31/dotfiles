@@ -1,12 +1,11 @@
-{ pkgs, nvim, globals, lib, ... }: {
+{ pkgs, globals, lib, ... }: {
   imports = [ ../../shell ];
   home = {
     username = globals.user;
     homeDirectory =
       builtins.toPath (if pkgs.stdenv.isDarwin then "/Users" else "/home") + "/"
       + globals.user;
-    stateVersion = "24.11";
-    packages = [ nvim ];
+    stateVersion = "25.05";
   };
   nix = {
     package = pkgs.nix;

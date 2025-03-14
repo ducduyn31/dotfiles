@@ -1,4 +1,4 @@
-{ inputs, nixpkgsConfig, globals, nvim }:
+{ inputs, nixpkgsConfig, globals }:
 
 with inputs;
 nix-darwin.lib.darwinSystem {
@@ -12,13 +12,24 @@ nix-darwin.lib.darwinSystem {
     ({ pkgs, inputs, ... }: {
       nixpkgs.config = nixpkgsConfig;
 
-      environment.systemPackages = [
-        # nvim
-        # GUI apps
-        pkgs.mkalias
-        pkgs.obsidian
-        pkgs.appcleaner
-      ];
+      environment = {
+        systemPackages = [
+          # GUI apps
+          pkgs.mkalias
+          pkgs.obsidian
+          pkgs.appcleaner
+
+          # Special case
+          pkgs.podman
+          pkgs.xz
+        ];
+        etc = {
+          "containers/containers.conf.d/99-gvproxy-path.conf".text = ''
+            [engine]
+            helper_binaries_dir = ["${pkgs.gvproxy}/bin"]
+          '';
+        };
+      };
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
@@ -42,9 +53,7 @@ nix-darwin.lib.darwinSystem {
 
       nix = {
         # Enable flakes
-        gc = {
-          automatic = false;
-        };
+        gc = { automatic = false; };
 
         settings = {
           allowed-users = [ globals.user ];
@@ -68,7 +77,7 @@ nix-darwin.lib.darwinSystem {
           with inputs; {
             imports = [ ../../home-manager ../../shell ];
             home.username = globals.user;
-            home.stateVersion = "24.11";
+            home.stateVersion = "25.05";
 
             # For this profile, provide the python, frontend, and devops packages
             # without going to devshell.
@@ -78,7 +87,6 @@ nix-darwin.lib.darwinSystem {
 
               # Javascript
               pkgs.pnpm
-              pkgs.turbo
               pkgs.fnm
               pkgs.bun
               pkgs.supabase-cli
@@ -104,12 +112,13 @@ nix-darwin.lib.darwinSystem {
               pkgs.pulumi
               pkgs.ssm-session-manager-plugin
               pkgs.terraform
-              pkgs.terragrunt
               pkgs.kubectl
               pkgs.k9s
               pkgs.stern
               pkgs.kubectx
               pkgs.tflint
+              pkgs.podman-tui
+              pkgs.podman-desktop
               pkgs.docker-compose
 
               # Streaming

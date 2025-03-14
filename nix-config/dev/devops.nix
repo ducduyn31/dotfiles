@@ -6,7 +6,6 @@ pkgs.mkShell {
     pkgs.ssm-session-manager-plugin
     pkgs.awscli2
     pkgs.terraform
-    pkgs.terragrunt
     pkgs.kubectl
     pkgs.k9s
     pkgs.stern
