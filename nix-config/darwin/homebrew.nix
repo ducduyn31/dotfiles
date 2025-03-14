@@ -20,17 +20,18 @@
       "nikitabobko/tap/aerospace" # tiling window manager
       "arc"
       "spotify"
+      "podman-desktop"
 
       # communication
       "microsoft-teams"
       # "zoom"
       "discord"
-      "ghostty"
 
       # development
       "postman"
       "zed"
       "cursor"
+      "ghostty"
       # "wireshark"
 
       # productivity
@@ -39,6 +40,7 @@
 
       # streaming
       "obs"
+      "cleanshot"
     ];
     masApps = {
       "Apple Configurator" = 1037126344;

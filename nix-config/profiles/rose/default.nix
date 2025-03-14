@@ -110,8 +110,6 @@ nix-darwin.lib.darwinSystem {
               pkgs.stern
               pkgs.kubectx
               pkgs.tflint
-              pkgs.podman
-              pkgs.podman-desktop
               pkgs.docker-compose
 
               # Streaming
