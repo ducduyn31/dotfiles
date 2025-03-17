@@ -3,6 +3,7 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.docker-compose
     pkgs.pulumi
+    pkgs.pulumiPackages.pulumi-language-nodejs
     pkgs.ssm-session-manager-plugin
     pkgs.awscli2
     pkgs.terraform
