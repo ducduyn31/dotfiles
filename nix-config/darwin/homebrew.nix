@@ -31,6 +31,7 @@
       "zed"
       "cursor"
       "ghostty"
+      "visual-studio-code"
       # "wireshark"
 
       # productivity
