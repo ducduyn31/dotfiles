@@ -25,6 +25,7 @@
         chmod -R go-w /nix/var/nix/profiles/default/share/zsh &> /dev/null
       fi
 
+      # Load environment variables
       [ -f ~/.env/env.sh ] && source ~/.env/env.sh
 
       # used for homebrew
@@ -37,7 +38,12 @@
       bindkey '^f' fzf-file-widget
 
       # Set up fnm
-      eval "$(fnm env --use-on-cd --shell zsh)"
+      if command -v fnm &> /dev/null; then
+        eval "$(fnm env --use-on-cd --shell zsh)"
+      fi
+
+      # Import user zsh configuration
+      [ -f ~/.zshrc.local ] && source ~/.zshrc.local
     '';
 
     shellAliases = {
@@ -45,7 +51,7 @@
       za =
         "zellij attach $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
       zd =
-        "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
+        "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}') --force";
     };
 
     plugins = [
