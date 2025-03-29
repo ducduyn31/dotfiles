@@ -3,23 +3,23 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
-			
+
 			-- Only proceed if we have servers to configure
 			if type(opts.servers) ~= "table" then
 				return
 			end
-			
+
 			-- Setup handlers for custom servers
 			opts.setup = opts.setup or {}
-			
+
 			for server, config in pairs(opts.servers) do
 				-- Skip disabled servers
 				if config.enabled == false then
 					-- Skip silently
-				-- Skip servers that have a custom setup handler
+					-- Skip servers that have a custom setup handler
 				elseif opts.setup[server] and opts.setup[server](server, config) then
 					-- Custom setup handled
-				-- Check if the server exists in lspconfig
+					-- Check if the server exists in lspconfig
 				elseif lspconfig[server] then
 					-- Safely get capabilities
 					local has_blink_cmp, blink_cmp = pcall(require, "blink.cmp")
@@ -37,3 +37,4 @@ return {
 		},
 	},
 }
+
