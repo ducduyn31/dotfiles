@@ -52,6 +52,8 @@
         "zellij attach $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
       zd =
         "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}') --force";
+      zk =
+        "zellij kill-session $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
     };
 
     plugins = [
