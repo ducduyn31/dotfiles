@@ -121,6 +121,7 @@ nix-darwin.lib.darwinSystem {
               pkgs.podman-tui
               pkgs.podman-desktop
               pkgs.docker-compose
+              pkgs.pgadmin4
 
               # Streaming
               pkgs.keycastr # Visualize keystrokes
