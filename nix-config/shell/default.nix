@@ -17,6 +17,7 @@
       pkgs.inetutils
       pkgs.lazygit
       pkgs.gh
+      pkgs.coreutils
 
       # Utils for cli
       pkgs.tree # Directory listing
