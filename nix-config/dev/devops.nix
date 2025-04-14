@@ -13,7 +13,6 @@ pkgs.mkShell {
     pkgs.kubectx
     pkgs.tflint
     pkgs.podman
-    pkgs.pgadmin4
   ];
   shellHook = ''
     echo "

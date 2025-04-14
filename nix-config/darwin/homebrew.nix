@@ -33,6 +33,7 @@
       "ghostty"
       "visual-studio-code"
       # "wireshark"
+      "pgadmin4"
 
       # productivity
       "raycast"
