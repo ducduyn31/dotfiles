@@ -5,7 +5,6 @@ pkgs.mkShell {
     pkgs.python3
     pkgs.poetry
     pkgs.uv
-    pkgs.python312Packages.markitdown
   ];
   shellHook = ''
     echo "

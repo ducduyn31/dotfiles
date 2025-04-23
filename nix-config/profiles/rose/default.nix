@@ -96,7 +96,6 @@ nix-darwin.lib.darwinSystem {
               pkgs.python3
               pkgs.poetry
               pkgs.uv
-              pkgs.python312Packages.markitdown
 
               # Golang
               pkgs.go
