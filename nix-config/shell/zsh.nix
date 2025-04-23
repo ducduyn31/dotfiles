@@ -54,7 +54,7 @@
         "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}') --force";
       zk =
         "zellij kill-session $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
-      date="coreutils --coreutils-prog=date";
+      date = "coreutils --coreutils-prog=date";
     };
 
     plugins = [
