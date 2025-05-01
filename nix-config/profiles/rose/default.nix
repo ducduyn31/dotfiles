@@ -97,6 +97,9 @@ nix-darwin.lib.darwinSystem {
               pkgs.poetry
               pkgs.uv
 
+              # Security
+              pkgs.sherlock
+
               # Golang
               pkgs.go
               pkgs.air
