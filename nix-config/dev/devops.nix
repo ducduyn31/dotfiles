@@ -6,6 +6,7 @@ pkgs.mkShell {
     pkgs.pulumiPackages.pulumi-language-nodejs
     pkgs.ssm-session-manager-plugin
     pkgs.awscli2
+    pkgs.azure-cli
     pkgs.terraform
     pkgs.kubectl
     pkgs.k9s
