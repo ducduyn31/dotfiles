@@ -99,6 +99,7 @@ nix-darwin.lib.darwinSystem {
 
               # Security
               pkgs.sherlock
+              pkgs.exiftool
 
               # Golang
               pkgs.go
