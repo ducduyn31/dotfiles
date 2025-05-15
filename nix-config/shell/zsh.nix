@@ -14,7 +14,7 @@
       share = true;
     };
 
-    initExtra = ''
+    initContent = ''
       autoload -U compinit
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path ~/.zsh_cache
