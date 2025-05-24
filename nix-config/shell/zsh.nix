@@ -49,6 +49,11 @@
       if command -v terraform &> /dev/null; then
         complete -C "$(which terraform)" terraform
       fi
+
+      # Set up aws completion
+      if command -v aws_completer &> /dev/null; then
+        complete -C '$(which aws_completer)' aws
+      fi
     '';
 
     shellAliases = {
