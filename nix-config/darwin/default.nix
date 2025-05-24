@@ -40,9 +40,7 @@
         QuitMenuItem = true;
       };
 
-      NSGlobalDomain = {
-        ApplePressAndHoldEnabled = false;
-      };
+      NSGlobalDomain = { ApplePressAndHoldEnabled = false; };
     };
     activationScripts.applications.text = let
       env = pkgs.buildEnv {

@@ -81,56 +81,61 @@ nix-darwin.lib.darwinSystem {
 
             # For this profile, provide the python, frontend, and devops packages
             # without going to devshell.
-            home.packages = [
+            home.packages = let
+              gdk = pkgs.google-cloud-sdk.withExtraComponents
+                (with pkgs.google-cloud-sdk.components;
+                  [ gke-gcloud-auth-plugin ]);
+            in with pkgs; [
               # Java
-              pkgs.jdk21_headless
+              jdk21_headless
 
               # Javascript
-              pkgs.pnpm
-              pkgs.fnm
-              pkgs.bun
-              pkgs.supabase-cli
+              pnpm
+              fnm
+              bun
+              supabase-cli
 
               # Python
-              pkgs.pyenv
-              pkgs.python3
-              pkgs.poetry
-              pkgs.uv
+              pyenv
+              python3
+              poetry
+              uv
 
               # Security
-              pkgs.sherlock
-              pkgs.exiftool
+              sherlock
+              exiftool
 
               # Golang
-              pkgs.go
-              pkgs.air
-              pkgs.gotestsum
-              pkgs.delve
-              pkgs.cue
-              pkgs.golangci-lint
-              pkgs.redocly
-              pkgs.go-mockery
-              pkgs.go-swag
+              go
+              air
+              gotestsum
+              delve
+              cue
+              golangci-lint
+              redocly
+              go-mockery
+              go-swag
 
               # Infrastructure
-              pkgs.awscli2
-              pkgs.azure-cli
-              pkgs.pulumi
-              pkgs.pulumiPackages.pulumi-nodejs
-              pkgs.ssm-session-manager-plugin
-              pkgs.terraform
-              pkgs.kubectl
-              pkgs.k9s
-              pkgs.stern
-              pkgs.kubectx
-              pkgs.tflint
-              pkgs.podman-tui
-              pkgs.podman-desktop
-              pkgs.docker-compose
+              awscli2
+              azure-cli
+              pulumi
+              pulumiPackages.pulumi-nodejs
+              ssm-session-manager-plugin
+              terraform
+              kubectl
+              k9s
+              stern
+              kubectx
+              tflint
+              podman-tui
+              podman-desktop
+              docker-compose
+              gdk
 
               # Streaming
-              pkgs.keycastr # Visualize keystrokes
-              pkgs.perl
+              keycastr # Visualize keystrokes
+              perl
             ];
 
             programs = {

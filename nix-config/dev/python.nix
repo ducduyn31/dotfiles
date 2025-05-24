@@ -1,11 +1,6 @@
 { pkgs, ... }:
 pkgs.mkShell {
-  buildInputs = [
-    pkgs.pyenv
-    pkgs.python3
-    pkgs.poetry
-    pkgs.uv
-  ];
+  buildInputs = [ pkgs.pyenv pkgs.python3 pkgs.poetry pkgs.uv ];
   shellHook = ''
     echo "
     Welcome to the Python development environment!

@@ -2,38 +2,38 @@
   imports = [ ./zsh.nix ./tmux.nix ./zellij.nix ];
 
   home = {
-    packages = [
+    packages = with pkgs; [
       # Must have
-      pkgs.vim
-      pkgs.neovim
-      pkgs.tmux
-      pkgs.starship
-      pkgs.bat
-      pkgs.ripgrep
-      pkgs.fd
-      pkgs.jq
-      pkgs.jqp
-      pkgs.fzf # Fuzzy finder
-      pkgs.inetutils
-      pkgs.lazygit
-      pkgs.gh
-      pkgs.coreutils
+      vim
+      neovim
+      tmux
+      starship
+      bat
+      ripgrep
+      fd
+      jq
+      jqp
+      fzf # Fuzzy finder
+      inetutils
+      lazygit
+      gh
+      coreutils
 
       # Utils for cli
-      pkgs.tree # Directory listing
-      pkgs.zenith # System monitoring
-      pkgs.nmap # Network scanner
-      pkgs.openssl # SSL/TLS toolkit
-      pkgs.wget # HTTP client
-      pkgs.curl # HTTP client
-      pkgs.httpie # HTTP client
-      pkgs.unixtools.watch
-      pkgs.tmate # Terminal sharing
-      pkgs.tealdeer # Better man pages
-      pkgs.stow # Symlink Manager
-      pkgs.flyctl # Fly.io CLI
-      pkgs.gnuplot # Tools for other software to plots
-      pkgs.dwt1-shell-color-scripts # Collection of shell color scripts
+      tree # Directory listing
+      zenith # System monitoring
+      nmap # Network scanner
+      openssl # SSL/TLS toolkit
+      wget # HTTP client
+      curl # HTTP client
+      httpie # HTTP client
+      unixtools.watch
+      tmate # Terminal sharing
+      tealdeer # Better man pages
+      stow # Symlink Manager
+      flyctl # Fly.io CLI
+      gnuplot # Tools for other software to plots
+      dwt1-shell-color-scripts # Collection of shell color scripts
     ];
 
     shellAliases = {
