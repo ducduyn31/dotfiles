@@ -44,6 +44,11 @@
 
       # Import user zsh configuration
       [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+      # Set up terraform autocomplete
+      if command -v terraform &> /dev/null; then
+        complete -C "$(which terraform)" terraform
+      fi
     '';
 
     shellAliases = {
