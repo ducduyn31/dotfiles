@@ -15,6 +15,7 @@
   security = { pam.services.sudo_local.touchIdAuth = true; };
 
   system = {
+    primaryUser = "danielng";
     defaults = {
       dock = {
         autohide = true;

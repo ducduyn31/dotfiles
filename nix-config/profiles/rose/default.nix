@@ -94,6 +94,8 @@ nix-darwin.lib.darwinSystem {
               fnm
               bun
               supabase-cli
+              codex
+              claude-code
 
               # Python
               pyenv

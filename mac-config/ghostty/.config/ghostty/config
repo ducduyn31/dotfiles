@@ -12,3 +12,4 @@ macos-titlebar-style = hidden
 
 # theme = dark:rose-pine-moon,light:rose-pine-dawn
 theme = rose-pine
+keybind = shift+enter=text:\n
