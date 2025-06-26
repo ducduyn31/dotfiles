@@ -18,10 +18,6 @@ nix-darwin.lib.darwinSystem {
           pkgs.mkalias
           pkgs.obsidian
           pkgs.appcleaner
-
-          # Special case
-          pkgs.podman
-          pkgs.xz
         ];
         etc = {
           "containers/containers.conf.d/99-gvproxy-path.conf".text = ''
@@ -130,8 +126,6 @@ nix-darwin.lib.darwinSystem {
               stern
               kubectx
               tflint
-              podman-tui
-              podman-desktop
               docker-compose
               gdk
 

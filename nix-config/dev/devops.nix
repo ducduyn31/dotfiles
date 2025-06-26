@@ -16,7 +16,6 @@ in pkgs.mkShell {
     stern
     kubectx
     tflint
-    podman
     gdk
   ];
   shellHook = ''
