@@ -54,6 +54,11 @@
       if command -v aws_completer &> /dev/null; then
         complete -C '$(which aws_completer)' aws
       fi
+
+      # Set up orbstack completion
+      if command -v docker &> /dev/null; then
+        eval "$(docker completion zsh)"
+      fi
     '';
 
     shellAliases = {

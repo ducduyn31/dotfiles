@@ -31,6 +31,7 @@
       "zed"
       "cursor"
       "ghostty"
+      "orbstack"
       "visual-studio-code"
       # "wireshark"
       "pgadmin4"
