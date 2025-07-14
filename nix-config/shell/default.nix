@@ -34,6 +34,9 @@
       flyctl # Fly.io CLI
       gnuplot # Tools for other software to plots
       dwt1-shell-color-scripts # Collection of shell color scripts
+      qsv # CSV manipulation command line tools
+      visidata # CSV viewer
+      circleci-cli
     ];
 
     shellAliases = {

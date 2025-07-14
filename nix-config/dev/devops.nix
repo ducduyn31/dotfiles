@@ -17,6 +17,7 @@ in pkgs.mkShell {
     kubectx
     tflint
     gdk
+    circleci-cli
   ];
   shellHook = ''
     echo "
