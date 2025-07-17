@@ -34,7 +34,7 @@
       "orbstack"
       "visual-studio-code"
       # "wireshark"
-      "pgadmin4"
+      "dbeaver-community"
 
       # productivity
       "raycast"
