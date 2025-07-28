@@ -37,6 +37,8 @@
       qsv # CSV manipulation command line tools
       visidata # CSV viewer
       circleci-cli
+      gitleaks
+      git-filter-repo
     ];
 
     shellAliases = {
