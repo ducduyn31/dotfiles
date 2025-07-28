@@ -35,6 +35,7 @@
       "visual-studio-code"
       # "wireshark"
       "dbeaver-community"
+      "redis-insight"
 
       # productivity
       "raycast"
