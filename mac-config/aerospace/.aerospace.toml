@@ -56,11 +56,11 @@ alt-shift-c = 'reload-config'
 6 = ['msi', 'ls32', 'dell', 'builtin', 'secondary', 'main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'alacritty'
+if.app-name-regex-substring = 'ghostty'
 run = 'move-node-to-workspace --focus-follows-window 2'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'ghostty'
+if.app-name-regex-substring = 'cursor'
 run = 'move-node-to-workspace --focus-follows-window 2'
 
 [[on-window-detected]]
