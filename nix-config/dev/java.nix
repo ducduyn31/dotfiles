@@ -1,10 +1,9 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 pkgs.mkShell {
   buildInputs = [
     pkgs.gradle
     pkgs.kotlin
     pkgs.ktlint
-
   ];
   shellHook = ''
     echo "

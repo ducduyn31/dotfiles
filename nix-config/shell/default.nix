@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ./zsh.nix ./tmux.nix ./zellij.nix ];
+{pkgs, ...}: {
+  imports = [./zsh.nix ./tmux.nix ./zellij.nix];
 
   home = {
     packages = with pkgs; [
@@ -48,7 +48,7 @@
       mkdir = "mkdir -p";
     };
 
-    sessionPath = [ "$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" ];
+    sessionPath = ["$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin"];
 
     sessionVariables = {
       GO111MODULE = "on";
@@ -69,16 +69,15 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand =
-        "fd --type f --follow --exclude .git --exclude node_modules --exclude .vim --exclude .cache --exclude vendor";
-      defaultOptions = [ "--border sharp" "--inline-info" ];
+      defaultCommand = "fd --type f --follow --exclude .git --exclude node_modules --exclude .vim --exclude .cache --exclude vendor";
+      defaultOptions = ["--border sharp" "--inline-info"];
     };
 
     gh = {
       enable = true;
-      extensions = [ pkgs.gh-notify ];
+      extensions = [pkgs.gh-notify];
     };
 
-    starship = { enable = true; };
+    starship = {enable = true;};
   };
 }

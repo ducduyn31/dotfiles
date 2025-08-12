@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.git = {
     enable = true;
 
-    lfs = { enable = true; };
+    lfs = {enable = true;};
 
     delta = {
       enable = true;
@@ -10,14 +10,14 @@
     };
 
     extraConfig = {
-      merge = { tool = "nvim"; };
+      merge = {tool = "nvim";};
       mergetool = {
-        nvim = { cmd = ''nvim -f -c "Gvdiffsplit!" "$MERGED"''; };
+        nvim = {cmd = ''nvim -f -c "Gvdiffsplit!" "$MERGED"'';};
         prompt = false;
       };
-      delta = { navigate = true; };
+      delta = {navigate = true;};
     };
 
-    includes = [{ path = "~/.gitconfig"; }];
+    includes = [{path = "~/.gitconfig";}];
   };
 }

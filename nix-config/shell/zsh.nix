@@ -1,4 +1,8 @@
-{ pkgs, pkgs-zsh-fzf-tab, ... }: {
+{
+  pkgs,
+  pkgs-zsh-fzf-tab,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = false;
@@ -63,12 +67,9 @@
 
     shellAliases = {
       z = "zellij";
-      za =
-        "zellij attach $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
-      zd =
-        "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}') --force";
-      zk =
-        "zellij kill-session $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
+      za = "zellij attach $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
+      zd = "zellij delete-session $(zellij list-sessions | fzf --ansi | awk '{print $1}') --force";
+      zk = "zellij kill-session $(zellij list-sessions | fzf --ansi | awk '{print $1}')";
       date = "coreutils --coreutils-prog=date";
     };
 
@@ -95,12 +96,11 @@
       enable = true;
       caseSensitive = false;
       utility.safeOps = true;
-      tmux.autoStartLocal = true;
       editor = {
         dotExpansion = true;
         keymap = "vi";
       };
-      pmodules = [ "autosuggestions" "directory" "editor" "git" "terminal" ];
+      pmodules = ["autosuggestions" "directory" "editor" "git" "terminal"];
     };
   };
 }

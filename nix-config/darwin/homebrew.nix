@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   homebrew = {
     enable = true;
     brews = [
@@ -45,7 +45,7 @@
       "obs"
       "cleanshot"
     ];
-    masApps = { "Apple Configurator" = 1037126344; };
+    masApps = {"Apple Configurator" = 1037126344;};
     taps = [
       # default
       "homebrew/bundle"

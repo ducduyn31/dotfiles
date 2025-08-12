@@ -1,5 +1,9 @@
-{ pkgs, config, ... }: {
-  imports = [ ./homebrew.nix ];
+{
+  pkgs,
+  config,
+  ...
+}: {
+  imports = [./homebrew.nix];
 
   environment = {
     variables = {
@@ -8,11 +12,11 @@
     };
   };
 
-  programs = { zsh.enable = true; };
+  programs = {zsh.enable = true;};
 
-  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
 
-  security = { pam.services.sudo_local.touchIdAuth = true; };
+  security = {pam.services.sudo_local.touchIdAuth = true;};
 
   system = {
     primaryUser = "danielng";
@@ -41,7 +45,7 @@
         QuitMenuItem = true;
       };
 
-      NSGlobalDomain = { ApplePressAndHoldEnabled = false; };
+      NSGlobalDomain = {ApplePressAndHoldEnabled = false;};
     };
     activationScripts.applications.text = let
       env = pkgs.buildEnv {
