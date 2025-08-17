@@ -11,6 +11,26 @@ end
 return {
 	{
 		"ibhagwan/fzf-lua",
+		opts = {
+			files = {
+				fd_opts = "--color=never --type f --follow --exclude .git",
+				actions = {
+					["ctrl-h"] = function(...)
+						require("fzf-lua.actions").toggle_hidden(...)
+					end,
+				},
+			},
+			grep = {
+				actions = {
+					["ctrl-h"] = function(...)
+						require("fzf-lua.actions").toggle_hidden(...)
+					end,
+					["ctrl-q"] = function(...)
+						require("fzf-lua.actions").file_sel_to_qf(...)
+					end,
+				},
+			},
+		},
 		keys = {
 			{ "<c-j>", "<c-j>", ft = "fzf", mode = "t", nowait = true },
 			{ "<c-k>", "<c-k>", ft = "fzf", mode = "t", nowait = true },
@@ -26,8 +46,8 @@ return {
 			{ "<leader>sc", LazyVim.pick.config_files(), desc = "[S]earch [C]onfig File" },
 			{ "<leader>sf", LazyVim.pick("files"), desc = "[S]earch [F]iles (Root Dir)" },
 			{ "<leader>sF", LazyVim.pick("files", { root = false }), desc = "[S]earch [F]iles (cwd)" },
-			{ "<leader>sg", "<cmd>FzfLua git_files<cr>", desc = "[S]earch [G]it Changed Files" },
-			{ "<leader>sr", "<cmd>FzfLua oldfiles<cr>", desc = "[S]earch [R]ecent" },
+			{ "<leader>sgf", "<cmd>FzfLua git_files<cr>", desc = "[S]earch [G]it [F]iles" },
+			{ "<leader>so", "<cmd>FzfLua oldfiles<cr>", desc = "[S]earch [O]ld files" },
 			{ "<leader>sR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "[S]earch [R]ecent (cwd)" },
 			-- git
 			{ "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "List [G]it [C]ommits" },
@@ -35,8 +55,8 @@ return {
 			-- search
 			{ '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
 			{ "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
-			{ "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
-			{ "<leader>sc", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+			{ "<leader>s/", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
+			{ "<leader>s:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
 			{ "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
 			{ "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Document Diagnostics" },
 			{ "<leader>sD", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
