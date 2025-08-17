@@ -124,11 +124,9 @@ with inputs;
 
                   # Rust
                   rustc
-                  cargo
-                  rustfmt
-                  clippy
-                  rust-analyzer
                   alejandra
+                  watchexec
+                  rustup
 
                   # Nix
                   nixd

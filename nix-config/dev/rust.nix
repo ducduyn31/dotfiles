@@ -2,18 +2,15 @@
 pkgs.mkShell {
   buildInputs = [
     pkgs.rustc
-    pkgs.cargo
-    pkgs.rustfmt
-    pkgs.clippy
-    pkgs.rust-analyzer
+    pkgs.rustup
     pkgs.alejandra
+    pkgs.watchexec
   ];
   shellHook = ''
     echo "
     Welcome to the Rust development environment!
     You have access to the following tools:
     - rustc: $(rustc --version)
-    - cargo: $(cargo --version)
     - alejandra: $(alejandra --version)
     - and more!
 
