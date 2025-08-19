@@ -15,19 +15,15 @@ return {
 			files = {
 				fd_opts = "--color=never --type f --follow --exclude .git",
 				actions = {
-					["ctrl-h"] = function(...)
-						require("fzf-lua.actions").toggle_hidden(...)
-					end,
+					["ctrl-h"] = require("fzf-lua.actions").toggle_hidden,
+					["ctrl-i"] = require("fzf-lua.actions").toggle_ignore,
 				},
 			},
 			grep = {
 				actions = {
-					["ctrl-h"] = function(...)
-						require("fzf-lua.actions").toggle_hidden(...)
-					end,
-					["ctrl-q"] = function(...)
-						require("fzf-lua.actions").file_sel_to_qf(...)
-					end,
+					["ctrl-h"] = require("fzf-lua.actions").toggle_hidden,
+					["ctrl-i"] = require("fzf-lua.actions").toggle_ignore,
+					["ctrl-q"] = require("fzf-lua.actions").file_sel_to_qf,
 				},
 			},
 		},
