@@ -23,8 +23,12 @@ return {
 				actions = {
 					["ctrl-h"] = require("fzf-lua.actions").toggle_hidden,
 					["ctrl-i"] = require("fzf-lua.actions").toggle_ignore,
-					["ctrl-q"] = require("fzf-lua.actions").file_sel_to_qf,
 				},
+			},
+		},
+		keymap = {
+			fzf = {
+				["ctrl-q"] = "select-all+accept",
 			},
 		},
 		keys = {
