@@ -146,6 +146,9 @@ with inputs;
                   docker-compose
                   gdk
 
+                  # Databases
+                  riot-redis
+
                   # Streaming
                   keycastr # Visualize keystrokes
                   perl

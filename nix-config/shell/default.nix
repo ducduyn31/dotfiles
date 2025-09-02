@@ -12,6 +12,7 @@
       ripgrep
       fd
       jq
+      yq-go
       jqp
       fzf # Fuzzy finder
       inetutils
