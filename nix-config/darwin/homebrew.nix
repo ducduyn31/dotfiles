@@ -13,6 +13,7 @@
       "jpeg"
       "giflib"
       "librsvg"
+      "git-xargs"
     ];
     casks = [
       "hammerspoon"
