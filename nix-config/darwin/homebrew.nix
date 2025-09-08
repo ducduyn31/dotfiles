@@ -14,6 +14,7 @@
       "giflib"
       "librsvg"
       "git-xargs"
+      "redis/tap/riot"
     ];
     casks = [
       "hammerspoon"
@@ -54,6 +55,7 @@
       # custom
       "nikitabobko/tap"
       "sst/tap"
+      "redis/tap"
     ];
     onActivation = {
       cleanup = "zap";
