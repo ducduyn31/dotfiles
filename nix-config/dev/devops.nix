@@ -11,7 +11,8 @@ in
       ssm-session-manager-plugin
       awscli2
       azure-cli
-      terraform
+      tenv # Including terraform and terragrunt
+      trivy
       kubectl
       k9s
       stern

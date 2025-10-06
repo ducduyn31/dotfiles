@@ -137,7 +137,8 @@ with inputs;
                   pulumi
                   pulumiPackages.pulumi-nodejs
                   ssm-session-manager-plugin
-                  terraform
+                  tenv # Including terraform and terragrunt
+                  trivy
                   kubectl
                   k9s
                   stern
@@ -157,9 +158,11 @@ with inputs;
               programs = {
                 go = {
                   enable = true;
-                  goPath = "go";
-                  goBin = "go/bin";
-                  goPrivate = [];
+                  env = {
+                    GOPATH = "$HOME/go";
+                    GOBIN = "$HOME/go/bin";
+                    GOPRIVATE = "";
+                  };
                 };
               };
             };
