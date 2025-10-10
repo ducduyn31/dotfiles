@@ -95,7 +95,7 @@ with inputs;
 
                   # Javascript
                   pnpm
-                  fnm
+                  volta
                   bun
                   supabase-cli
                   codex

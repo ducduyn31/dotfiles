@@ -1,6 +1,6 @@
 {pkgs, ...}:
 pkgs.mkShell {
-  buildInputs = [pkgs.pnpm pkgs.fnm pkgs.bun pkgs.supabase-cli pkgs.zsh];
+  buildInputs = [pkgs.pnpm pkgs.volta pkgs.bun pkgs.supabase-cli pkgs.zsh];
   nativeBuildInputs = [pkgs.playwright-driver.browsers];
   shellHook = ''
     export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
@@ -9,7 +9,7 @@ pkgs.mkShell {
     Welcome to the frontend development environment!
     You have access to the following tools:
     - pnpm: $(pnpm --version)
-    - fnm: $(fnm --version)
+    - volta: $(volta --version)
     - bun: $(bun --version)
     - and more!
 

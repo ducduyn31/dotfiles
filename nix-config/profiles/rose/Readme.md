@@ -7,7 +7,7 @@ The **rose** profile is a comprehensive development environment designed for ful
 ### Development Languages & Runtimes
 
 - **Java**: OpenJDK 21 (headless)
-- **JavaScript/TypeScript**: pnpm, fnm (Node.js version manager), bun
+- **JavaScript/TypeScript**: pnpm, volta (Node.js version manager), bun
 - **Python**: pyenv, Python 3, poetry, uv
 - **Go**: Full Go toolchain with development tools
 

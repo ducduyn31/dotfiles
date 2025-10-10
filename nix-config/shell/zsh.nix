@@ -41,9 +41,10 @@
       bindkey '^n' history-search-forward
       bindkey '^f' fzf-file-widget
 
-      # Set up fnm
-      if command -v fnm &> /dev/null; then
-        eval "$(fnm env --use-on-cd --shell zsh)"
+      # Set up volta
+      if command -v volta &> /dev/null; then
+        export VOLTA_HOME="$HOME/.volta"
+        export PATH="$VOLTA_HOME/bin:$PATH"
       fi
 
       # Import user zsh configuration
