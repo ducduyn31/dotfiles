@@ -59,6 +59,9 @@ return {
 								["napi-derive"] = { "napi" },
 								["async-recursion"] = { "async_recursion" },
 							},
+							attributes = {
+								enable = true,
+							},
 						},
 						files = {
 							excludeDirs = {
