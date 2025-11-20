@@ -4,6 +4,7 @@
     brews = [
       "mas"
       "sst/tap/sst" # sst
+      "opencode"
 
       # dependencies
       "pkg-config"

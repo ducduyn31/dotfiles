@@ -78,7 +78,11 @@ with inputs;
           };
           users.${globals.user} = {pkgs, ...}:
             with inputs; {
-              imports = [../../home-manager ../../shell];
+              imports = [
+                ../../home-manager
+                ../../shell
+                inputs.zen-browser.homeModules.default
+              ];
               home.username = globals.user;
               home.stateVersion = "25.05";
 
@@ -164,6 +168,8 @@ with inputs;
                     GOPRIVATE = "";
                   };
                 };
+
+                zen-browser.enable = true;
               };
             };
         };
