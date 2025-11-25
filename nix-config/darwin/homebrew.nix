@@ -39,6 +39,7 @@
       # "wireshark"
       "dbeaver-community"
       "redis-insight"
+      "claude-code"
 
       # productivity
       "raycast"

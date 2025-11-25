@@ -104,7 +104,6 @@ with inputs;
                   bun
                   supabase-cli
                   codex
-                  claude-code
 
                   # Python
                   pyenv
