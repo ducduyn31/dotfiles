@@ -62,6 +62,7 @@ with inputs;
             allowed-users = [globals.user];
             experimental-features = "flakes nix-command";
             warn-dirty = false;
+            download-buffer-size = 134217728; # 128 MB
           };
         };
       })

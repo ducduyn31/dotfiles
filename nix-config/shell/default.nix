@@ -40,6 +40,7 @@
       circleci-cli
       gitleaks
       git-filter-repo
+      renovate
     ];
 
     shellAliases = {

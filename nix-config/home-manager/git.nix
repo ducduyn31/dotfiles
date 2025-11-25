@@ -4,12 +4,7 @@
 
     lfs = {enable = true;};
 
-    delta = {
-      enable = true;
-      package = pkgs.delta;
-    };
-
-    extraConfig = {
+    settings = {
       merge = {tool = "nvim";};
       mergetool = {
         nvim = {cmd = ''nvim -f -c "Gvdiffsplit!" "$MERGED"'';};
@@ -19,5 +14,11 @@
     };
 
     includes = [{path = "~/.gitconfig";}];
+  };
+
+  programs.delta = {
+    enable = true;
+    package = pkgs.delta;
+    enableGitIntegration = true;
   };
 }
