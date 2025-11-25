@@ -4,4 +4,13 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 		opts = {},
 	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				vtsls = { enabled = false },
+				tsserver = { enabled = false },
+			},
+		},
+	},
 }

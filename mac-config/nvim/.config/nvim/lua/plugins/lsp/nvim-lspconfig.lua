@@ -13,8 +13,11 @@ return {
 			opts.setup = opts.setup or {}
 
 			for server, config in pairs(opts.servers) do
+				-- Skip the wildcard server (used by LazyVim for default config)
+				if server == "*" then
+					-- Skip - this is handled by LazyVim's lsp config
 				-- Skip disabled servers
-				if config.enabled == false then
+				elseif config.enabled == false then
 					-- Skip silently
 					-- Skip servers that have a custom setup handler
 				elseif opts.setup[server] and opts.setup[server](server, config) then
