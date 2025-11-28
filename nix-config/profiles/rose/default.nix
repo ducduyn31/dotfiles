@@ -77,7 +77,7 @@ with inputs;
             pkgs-zsh-fzf-tab =
               import inputs.nixpkgs-zsh-fzf-tab {system = "aarch64-darwin";};
           };
-          users.${globals.user} = {pkgs, ...}:
+          users.${globals.user} = {pkgs, config, ...}:
             with inputs; {
               imports = [
                 ../../home-manager
@@ -162,14 +162,14 @@ with inputs;
               programs = {
                 go = {
                   enable = true;
-                  env = {
-                    GOPATH = "$HOME/go";
-                    GOBIN = "$HOME/go/bin";
-                    GOPRIVATE = "";
-                  };
                 };
 
                 zen-browser.enable = true;
+              };
+
+              home.sessionVariables = {
+                GOPATH = "${config.home.homeDirectory}/go";
+                GOBIN = "${config.home.homeDirectory}/go/bin";
               };
             };
         };
