@@ -19,6 +19,7 @@
       lazygit
       gh
       coreutils
+      go-task
 
       # Utils for cli
       tree # Directory listing
