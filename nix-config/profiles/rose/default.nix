@@ -77,7 +77,11 @@ with inputs;
             pkgs-zsh-fzf-tab =
               import inputs.nixpkgs-zsh-fzf-tab {system = "aarch64-darwin";};
           };
-          users.${globals.user} = {pkgs, config, ...}:
+          users.${globals.user} = {
+            pkgs,
+            config,
+            ...
+          }:
             with inputs; {
               imports = [
                 ../../home-manager
@@ -151,8 +155,12 @@ with inputs;
                   docker-compose
                   gdk
 
+                  # Mobile Dev
+                  cocoapods
+
                   # Databases
                   riot-redis
+                  pgroll
 
                   # Streaming
                   keycastr # Visualize keystrokes

@@ -5,6 +5,7 @@
       "mas"
       "sst/tap/sst" # sst
       "opencode"
+      "twilio"
 
       # dependencies
       "pkg-config"
@@ -40,6 +41,8 @@
       "dbeaver-community"
       "redis-insight"
       "claude-code"
+      "flutter"
+      "proxyman"
 
       # productivity
       "raycast"
@@ -58,6 +61,7 @@
       "nikitabobko/tap"
       "sst/tap"
       "redis/tap"
+      "twilio/brew"
     ];
     onActivation = {
       cleanup = "zap";
