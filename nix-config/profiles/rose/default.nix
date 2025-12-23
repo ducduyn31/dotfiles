@@ -129,6 +129,7 @@ with inputs;
                   redocly
                   go-mockery
                   go-swag
+                  buf
 
                   # Rust
                   rustc

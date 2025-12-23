@@ -10,6 +10,9 @@ pkgs.mkShell {
     pkgs.redocly
     pkgs.go-mockery
     pkgs.go-swag
+    pkgs.buf
+    pkgs.bruno
+    pkgs.bruno-cli
   ];
   shellHook = ''
     echo "

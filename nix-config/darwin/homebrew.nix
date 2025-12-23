@@ -43,6 +43,7 @@
       "claude-code"
       "flutter"
       "proxyman"
+      "bruno"
 
       # productivity
       "raycast"
