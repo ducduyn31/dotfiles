@@ -11,5 +11,5 @@ window-padding-y = 0
 macos-titlebar-style = hidden
 
 # theme = dark:rose-pine-moon,light:rose-pine-dawn
-theme = rose-pine
+theme = Rose Pine
 keybind = shift+enter=text:\n

@@ -19,6 +19,11 @@
     };
 
     initContent = ''
+      # Add Homebrew completions before compinit
+      if [[ -d /opt/homebrew/share/zsh/site-functions ]]; then
+        fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+      fi
+
       autoload -U compinit
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path ~/.zsh_cache
@@ -101,7 +106,7 @@
         dotExpansion = true;
         keymap = "vi";
       };
-      pmodules = ["autosuggestions" "directory" "editor" "git" "terminal"];
+      pmodules = ["autosuggestions" "directory" "editor" "git" "homebrew" "terminal"];
     };
   };
 }

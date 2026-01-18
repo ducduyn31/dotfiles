@@ -23,7 +23,6 @@ with inputs;
           systemPackages = [
             # GUI apps
             pkgs.mkalias
-            pkgs.obsidian
             pkgs.appcleaner
           ];
           etc = {
@@ -112,7 +111,6 @@ with inputs;
                   # Python
                   pyenv
                   python3
-                  poetry
                   uv
 
                   # Security

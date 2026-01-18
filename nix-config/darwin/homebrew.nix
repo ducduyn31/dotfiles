@@ -5,7 +5,6 @@
       "mas"
       "sst/tap/sst" # sst
       "opencode"
-      "twilio"
 
       # dependencies
       "pkg-config"
@@ -63,7 +62,6 @@
       "nikitabobko/tap"
       "sst/tap"
       "redis/tap"
-      "twilio/brew"
     ];
     onActivation = {
       cleanup = "zap";
