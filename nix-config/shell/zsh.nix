@@ -5,7 +5,7 @@
 }: {
   programs.zsh = {
     enable = true;
-    enableCompletion = false;
+    enableCompletion = true;
     autocd = true;
     autosuggestion.enable = true;
 
@@ -19,16 +19,6 @@
     };
 
     initContent = ''
-      # Add Homebrew completions before compinit
-      if [[ -d /opt/homebrew/share/zsh/site-functions ]]; then
-        fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
-      fi
-
-      autoload -U compinit
-      zstyle ':completion:*' use-cache on
-      zstyle ':completion:*' cache-path ~/.zsh_cache
-      compinit -d ~/.zcompdump
-
       # Fix insecure directories
       if [[ -d /nix/var/nix/profiles/default/share/zsh ]]; then
         chmod -R go-w /nix/var/nix/profiles/default/share/zsh &> /dev/null
@@ -98,15 +88,17 @@
       }
     ];
 
-    prezto = {
+    oh-my-zsh = {
       enable = true;
-      caseSensitive = false;
-      utility.safeOps = true;
-      editor = {
-        dotExpansion = true;
-        keymap = "vi";
-      };
-      pmodules = ["autosuggestions" "directory" "editor" "git" "homebrew" "terminal"];
+      plugins = [
+        "git"
+        "brew"
+        "vi-mode"
+        "docker"
+        "kubectl"
+        "aws"
+        "terraform"
+      ];
     };
   };
 }
