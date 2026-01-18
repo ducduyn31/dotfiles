@@ -44,6 +44,7 @@
       "flutter"
       "proxyman"
       "bruno"
+      "viscosity" # VPN Client
 
       # productivity
       "raycast"
