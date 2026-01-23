@@ -140,6 +140,7 @@ with inputs;
 
                   # Infrastructure
                   awscli2
+                  cloudflared
                   azure-cli
                   pulumi
                   pulumiPackages.pulumi-nodejs
