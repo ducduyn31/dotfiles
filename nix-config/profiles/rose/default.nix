@@ -53,6 +53,8 @@ with inputs;
           localHostName = globals.macHostname;
         };
 
+        services.tailscale.enable = true;
+
         nix = {
           # Enable flakes
           gc = {automatic = false;};
@@ -140,7 +142,7 @@ with inputs;
 
                   # Infrastructure
                   awscli2
-                  cloudflared
+                  tailscale
                   azure-cli
                   pulumi
                   pulumiPackages.pulumi-nodejs

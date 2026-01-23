@@ -10,7 +10,7 @@ in
       pulumiPackages.pulumi-nodejs
       ssm-session-manager-plugin
       awscli2
-      cloudflared
+      tailscale
       azure-cli
       tenv # Including terraform and terragrunt
       trivy
