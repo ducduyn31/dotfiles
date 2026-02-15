@@ -18,28 +18,28 @@
       "redis/tap/riot"
     ];
     casks = [
-      "hammerspoon"
-      "the-unarchiver"
+      # "hammerspoon"
+      # "the-unarchiver"
       "nikitabobko/tap/aerospace" # tiling window manager
       "arc"
-      "spotify"
+      # "spotify"
 
       # communication
-      "microsoft-teams"
+      # "microsoft-teams"
       # "zoom"
       "discord"
 
       # development
-      "postman"
-      "zed"
-      "cursor"
+      # "postman"
+      # "zed"
+      # "cursor"
       "ghostty"
       "orbstack"
-      "visual-studio-code"
+      # "visual-studio-code"
       # "wireshark"
       "dbeaver-community"
       "redis-insight"
-      "claude-code"
+      # "claude-code"
       "flutter"
       "proxyman"
       "bruno"
@@ -50,7 +50,7 @@
       "termius" # SSH Manager
 
       # streaming
-      "obs"
+      # "obs"
       "cleanshot"
     ];
     masApps = {"Apple Configurator" = 1037126344;};

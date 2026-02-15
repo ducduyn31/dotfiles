@@ -33,15 +33,15 @@
       tmate # Terminal sharing
       tealdeer # Better man pages
       stow # Symlink Manager
-      flyctl # Fly.io CLI
-      gnuplot # Tools for other software to plots
+      # flyctl # Fly.io CLI
+      # gnuplot # Tools for other software to plots
       dwt1-shell-color-scripts # Collection of shell color scripts
-      qsv # CSV manipulation command line tools
-      visidata # CSV viewer
+      # qsv # CSV manipulation command line tools
+      # visidata # CSV viewer
       circleci-cli
-      gitleaks
-      git-filter-repo
-      renovate
+      # gitleaks
+      # git-filter-repo
+      # renovate
     ];
 
     shellAliases = {

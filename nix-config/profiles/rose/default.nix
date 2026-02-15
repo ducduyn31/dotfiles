@@ -101,14 +101,14 @@ with inputs;
               in
                 with pkgs; [
                   # Java
-                  jdk21_headless
+                  # jdk21_headless
 
                   # Javascript
-                  pnpm
+                  # pnpm
                   volta
                   bun
-                  supabase-cli
-                  codex
+                  # supabase-cli
+                  # codex
 
                   # Python
                   pyenv
@@ -116,8 +116,8 @@ with inputs;
                   uv
 
                   # Security
-                  sherlock
-                  exiftool
+                  # sherlock
+                  # exiftool
 
                   # Golang
                   go
@@ -143,7 +143,7 @@ with inputs;
                   # Infrastructure
                   awscli2
                   tailscale
-                  azure-cli
+                  # azure-cli
                   pulumi
                   pulumiPackages.pulumi-nodejs
                   ssm-session-manager-plugin
@@ -155,13 +155,13 @@ with inputs;
                   kubectx
                   tflint
                   docker-compose
-                  gdk
+                  # gdk
 
                   # Mobile Dev
                   cocoapods
 
                   # Databases
-                  riot-redis
+                  # riot-redis
                   pgroll
 
                   # Streaming
