@@ -137,6 +137,9 @@ with inputs;
                   watchexec
                   rustup
 
+                  # Lua
+                  luarocks
+
                   # Nix
                   nixd
 
@@ -155,7 +158,7 @@ with inputs;
                   kubectx
                   tflint
                   docker-compose
-                  # gdk
+                  gdk
 
                   # Mobile Dev
                   cocoapods
