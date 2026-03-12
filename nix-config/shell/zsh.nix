@@ -18,29 +18,39 @@
       share = true;
     };
 
+    envExtra = ''
+      # Load environment variables (API keys, etc.)
+      [ -f ~/.env/env.sh ] && source ~/.env/env.sh
+
+      # homebrew share path
+      export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
+
+      # Fix volta in Claude Code sessions (non-interactive login shell)
+      # Volta sets _VOLTA_TOOL_RECURSION and injects tools/image paths when launching
+      # node apps, which bypasses shim-based per-project version resolution
+      if [[ -n "$CLAUDECODE" ]] && command -v volta &> /dev/null; then
+        export VOLTA_HOME="$HOME/.volta"
+        unset _VOLTA_TOOL_RECURSION
+        # volta run ensures correct project-level version resolution
+        alias yarn='volta run yarn'
+        alias node='volta run node'
+        alias npm='volta run npm'
+        alias npx='volta run npx'
+        alias pnpm='volta run pnpm'
+      fi
+    '';
+
     initContent = ''
       # Fix insecure directories
       if [[ -d /nix/var/nix/profiles/default/share/zsh ]]; then
         chmod -R go-w /nix/var/nix/profiles/default/share/zsh &> /dev/null
       fi
 
-      # Load environment variables
-      [ -f ~/.env/env.sh ] && source ~/.env/env.sh
-
-      # used for homebrew
-      export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
-
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
       bindkey '^f' fzf-file-widget
-
-      # Set up volta
-      if command -v volta &> /dev/null; then
-        export VOLTA_HOME="$HOME/.volta"
-        export PATH="$VOLTA_HOME/bin:$PATH"
-      fi
 
       # Import user zsh configuration
       [ -f ~/.zshrc.local ] && source ~/.zshrc.local
@@ -58,6 +68,18 @@
       # Set up orbstack completion
       if command -v docker &> /dev/null; then
         eval "$(docker completion zsh)"
+      fi
+
+      # Set up volta — strip resolved tool paths so shims take priority
+      # (volta injects tools/image paths when launching node apps like Claude Code)
+      if command -v volta &> /dev/null; then
+        export VOLTA_HOME="$HOME/.volta"
+        export PATH="$(echo "$PATH" | tr ':' '\n' | grep -v '\.volta/tools/image' | tr '\n' ':' | sed 's/:$//')"
+        export PATH="$VOLTA_HOME/bin:$PATH"
+        # Unset recursion guard only in Claude Code sessions so shims can resolve
+        if [[ -n "$CLAUDECODE" ]]; then
+          unset _VOLTA_TOOL_RECURSION
+        fi
       fi
     '';
 

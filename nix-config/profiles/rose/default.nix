@@ -139,6 +139,7 @@ with inputs;
 
                   # Lua
                   luarocks
+                  stylua
 
                   # Nix
                   nixd

@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./zsh.nix ./tmux.nix ./zellij.nix];
+  imports = [./zsh.nix ./bash.nix ./tmux.nix ./zellij.nix];
 
   home = {
     packages = with pkgs; [
