@@ -17,6 +17,7 @@
       fzf # Fuzzy finder
       inetutils
       lazygit
+      lazydocker
       gh
       coreutils
       go-task
