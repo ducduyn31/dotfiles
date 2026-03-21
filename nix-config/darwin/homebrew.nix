@@ -5,6 +5,7 @@
       "mas"
       "sst/tap/sst" # sst
       "opencode"
+      "datadog-labs/pack/pup"
 
       # dependencies
       "pkg-config"
@@ -62,6 +63,7 @@
       "nikitabobko/tap"
       "sst/tap"
       "redis/tap"
+      "datadog-labs/pack"
     ];
     onActivation = {
       cleanup = "zap";
