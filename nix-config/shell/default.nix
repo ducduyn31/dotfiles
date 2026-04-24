@@ -50,6 +50,7 @@
       ll = "ls -l";
       la = "ls -la";
       mkdir = "mkdir -p";
+      gdate = "date";
     };
 
     sessionPath = ["$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin"];
