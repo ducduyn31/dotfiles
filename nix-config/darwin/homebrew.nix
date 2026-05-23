@@ -5,6 +5,7 @@
       "mas"
       "sst/tap/sst" # sst
       "opencode"
+      "ripgrep" # required by opencode
       "datadog-labs/pack/pup"
 
       # dependencies
