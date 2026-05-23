@@ -18,6 +18,16 @@
 
   security = {pam.services.sudo_local.touchIdAuth = true;};
 
+  # Disable Firefox/Zen "dedicated profile per install" so Nix store path changes
+  # don't spawn a fresh profile each upgrade.
+  launchd.user.agents.moz-legacy-profiles = {
+    serviceConfig = {
+      Label = "moz.legacy.profiles";
+      ProgramArguments = ["/bin/launchctl" "setenv" "MOZ_LEGACY_PROFILES" "1"];
+      RunAtLoad = true;
+    };
+  };
+
   system = {
     primaryUser = "danielng";
     defaults = {
