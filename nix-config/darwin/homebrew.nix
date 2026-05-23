@@ -41,10 +41,11 @@
       "dbeaver-community"
       "redis-insight"
       # "claude-code"
-      "flutter"
-      "proxyman"
+      # "flutter"
+      # "proxyman"
       "bruno"
       "viscosity" # VPN Client
+      "codex"
 
       # productivity
       "raycast"
