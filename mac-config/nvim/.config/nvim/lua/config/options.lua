@@ -5,6 +5,10 @@ vim.g.lazyvim_picker = "fzf"
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.snacks_animate = false
 
+-- Shared <leader>a AI keymaps. Toggle in-session with <leader>at.
+-- Override the persisted provider with NVIM_AI_PROVIDER=codex nvim.
+vim.g.ai_provider = require("config.ai").initial_provider()
+
 -- Rust
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 
