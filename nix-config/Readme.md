@@ -39,16 +39,18 @@ git clone https://github.com/ducduyn31/dotfiles.git
 `nix-darwin` is a tool that allows you to manage macOS settings using Nix. To install it, run the following command:
 
 ```bash
-nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix-config#rose
+sudo nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix-config#rose
 ```
 
 After running this command, either source the session again or open a new terminal.
 
 **Note:** The configuration file references a profile named daniel. You may need to modify the flake.nix file to match your setup before running the command.
 
-### 3.2 Install `home-manager` (If you are using non-nix system)
+### 3.2 Install `home-manager` (Linux only — skip on macOS)
 
-`home-manager` lets you manage your user environment using Nix. You can install it via standalone mode for non-nix system:
+> **macOS users: skip this section.** `nix-darwin` already includes `home-manager` as a module, so step 3.1 is enough. Running the standalone bootstrap below on macOS will create a conflicting `~/.config/home-manager/home.nix` and a standalone profile that can prevent the embedded `home-manager` activation from linking your dotfiles into `$HOME`.
+
+`home-manager` lets you manage your user environment using Nix. On non-nix systems (Linux without NixOS), install it in standalone mode:
 
 ```bash
 # Adding the channel to download home-manager
@@ -72,7 +74,7 @@ experimental-features = nix-command flakes
 After installing `nix-darwin` or `home-manager`, you can switch to the new configuration by running the following command:
 
 ```bash
-darwin-rebuild switch --flake ~/dotfiles/nix-config#rose
+sudo darwin-rebuild switch --flake ~/dotfiles/nix-config#rose
 ```
 
 or
