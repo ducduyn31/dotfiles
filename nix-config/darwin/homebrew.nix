@@ -29,6 +29,7 @@
       # "microsoft-teams"
       # "zoom"
       "discord"
+      "slack"
 
       # development
       # "postman"
