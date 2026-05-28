@@ -57,9 +57,6 @@
     ];
     masApps = {"Apple Configurator" = 1037126344;};
     taps = [
-      # default
-      "homebrew/bundle"
-      "homebrew/services"
       # custom
       "nikitabobko/tap"
       "sst/tap"
