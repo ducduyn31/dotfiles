@@ -21,6 +21,7 @@
       gh
       coreutils
       go-task
+      rsync
 
       # Utils for cli
       tree # Directory listing
