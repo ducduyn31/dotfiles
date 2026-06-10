@@ -56,7 +56,10 @@
       # "obs"
       "cleanshot"
     ];
-    masApps = {"Apple Configurator" = 1037126344;};
+    masApps = {
+      "Apple Configurator" = 1037126344;
+      "PDFgear" = 6469021132;
+    };
     taps = [
       # custom
       "nikitabobko/tap"
