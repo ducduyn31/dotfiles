@@ -47,6 +47,7 @@
       "bruno"
       "viscosity" # VPN Client
       "codex"
+      "ngrok"
 
       # productivity
       "raycast"
