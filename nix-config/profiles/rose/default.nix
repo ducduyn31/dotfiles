@@ -100,6 +100,9 @@ with inputs;
                   (with pkgs.google-cloud-sdk.components; [gke-gcloud-auth-plugin]);
               in
                 with pkgs; [
+                  # AI
+                  agent-browser
+
                   # Java
                   # jdk21_headless
 
@@ -162,15 +165,15 @@ with inputs;
                   gdk
 
                   # Mobile Dev
-                  cocoapods
+                  # cocoapods
 
                   # Databases
                   # riot-redis
                   pgroll
 
                   # Streaming
-                  keycastr # Visualize keystrokes
-                  perl
+                  # keycastr # Visualize keystrokes
+                  # perl
                 ];
 
               programs = {

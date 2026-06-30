@@ -70,7 +70,18 @@
 
     jq.enable = true;
     bat.enable = true;
-    nnn.enable = true;
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd zx"];
+    };
+
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      shellWrapperName = "y";
+    };
 
     fzf = {
       enable = true;
