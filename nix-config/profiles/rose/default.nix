@@ -157,6 +157,7 @@ with inputs;
                   tenv # Including terraform and terragrunt
                   trivy
                   kubectl
+                  kubernetes-helm
                   k9s
                   stern
                   kubectx
