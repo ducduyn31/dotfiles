@@ -71,6 +71,11 @@
     jq.enable = true;
     bat.enable = true;
 
+    mise = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
