@@ -158,6 +158,7 @@ with inputs;
                   trivy
                   kubectl
                   kubernetes-helm
+                  helmfile
                   k9s
                   stern
                   kubectx
