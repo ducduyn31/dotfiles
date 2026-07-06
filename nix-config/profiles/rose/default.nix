@@ -19,6 +19,10 @@ with inputs;
       }: {
         nixpkgs.config = nixpkgsConfig;
 
+        # Drop both when nix-darwin fixes it upstream.
+        documentation.doc.enable = false;
+        system.tools.darwin-uninstaller.enable = false;
+
         environment = {
           systemPackages = [
             # GUI apps
