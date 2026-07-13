@@ -18,6 +18,7 @@ with inputs;
         ...
       }: {
         nixpkgs.config = nixpkgsConfig;
+        nixpkgs.overlays = [inputs.herdr.overlays.default];
 
         # Drop both when nix-darwin fixes it upstream.
         documentation.doc.enable = false;
@@ -106,6 +107,7 @@ with inputs;
                 with pkgs; [
                   # AI
                   agent-browser
+                  herdr
 
                   # Java
                   # jdk21_headless

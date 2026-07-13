@@ -70,6 +70,11 @@
         eval "$(docker completion zsh)"
       fi
 
+      # Set up herdr completion
+      if command -v herdr &> /dev/null; then
+        eval "$(herdr completion zsh)"
+      fi
+
       # Set up volta — strip resolved tool paths so shims take priority
       # (volta injects tools/image paths when launching node apps like Claude Code)
       if command -v volta &> /dev/null; then
