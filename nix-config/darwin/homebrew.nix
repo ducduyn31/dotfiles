@@ -60,6 +60,7 @@
     masApps = {
       "Apple Configurator" = 1037126344;
       "PDFgear" = 6469021132;
+      "Goodnotes" = 1444383602;
     };
     taps = [
       # custom
