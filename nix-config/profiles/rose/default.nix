@@ -108,6 +108,8 @@ with inputs;
                   # AI
                   agent-browser
                   herdr
+                  glow
+                  delta
 
                   # Java
                   # jdk21_headless
