@@ -158,6 +158,7 @@ with inputs;
                   # Infrastructure
                   awscli2
                   tailscale
+                  openfortivpn
                   # azure-cli
                   pulumi
                   pulumiPackages.pulumi-nodejs
