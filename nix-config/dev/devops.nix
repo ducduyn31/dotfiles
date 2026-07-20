@@ -16,6 +16,7 @@ in
       trivy
       kubectl
       k9s
+      kustomize
       stern
       kubectx
       tflint

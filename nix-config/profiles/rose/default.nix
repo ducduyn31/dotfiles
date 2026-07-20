@@ -169,6 +169,7 @@ with inputs;
                   kubernetes-helm
                   helmfile
                   k9s
+                  kustomize
                   stern
                   kubectx
                   tflint
