@@ -110,6 +110,7 @@ with inputs;
                   herdr
                   glow
                   delta
+                  worktrunk
 
                   # Java
                   # jdk21_headless
