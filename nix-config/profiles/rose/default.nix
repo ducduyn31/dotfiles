@@ -18,7 +18,15 @@ with inputs;
         ...
       }: {
         nixpkgs.config = nixpkgsConfig;
-        nixpkgs.overlays = [inputs.herdr.overlays.default];
+        nixpkgs.overlays = [
+          inputs.herdr.overlays.default
+          # worktrunk's test suite probes the process table for its own/child
+          # pid, which the Nix build sandbox on macOS hides, so those tests
+          # always fail here even though the built binary is fine.
+          (final: prev: {
+            worktrunk = prev.worktrunk.overrideAttrs (_: {doCheck = false;});
+          })
+        ];
 
         # Drop both when nix-darwin fixes it upstream.
         documentation.doc.enable = false;
