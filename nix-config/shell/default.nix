@@ -96,7 +96,7 @@
 
     gh = {
       enable = true;
-      extensions = [pkgs.gh-notify];
+      extensions = [pkgs.gh-notify pkgs.gh-stack];
     };
 
     starship = {enable = true;};
