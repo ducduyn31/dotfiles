@@ -21,7 +21,6 @@ in
       kubectx
       tflint
       gdk
-      circleci-cli
     ];
     shellHook = ''
       echo "

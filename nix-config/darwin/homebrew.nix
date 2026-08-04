@@ -48,6 +48,7 @@
       "viscosity" # VPN Client
       "codex"
       "ngrok"
+      "circleci-public/circleci/circleci@next"
 
       # productivity
       "raycast"
@@ -68,6 +69,7 @@
       "sst/tap"
       "redis/tap"
       "datadog-labs/pack"
+      "circleci-public/circleci"
     ];
     onActivation = {
       cleanup = "zap";
