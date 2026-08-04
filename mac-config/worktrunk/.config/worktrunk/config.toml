@@ -1,0 +1,17 @@
+# ~/.config/worktrunk/config.toml
+
+# `wt switch`'s own `-- args` only feeds `--execute`, not hooks, so the
+# message is stashed as a per-branch var before creation; the post-start
+# hook (which does have proper template vars) picks it up from there.
+[aliases]
+new = "wt config state vars set msg={{ args[1] | default('') }} --branch={{ args[0] }} && wt switch --create {{ args[0] }}"
+
+# New worktree -> new zellij tab, cd'd in, running Claude Code.
+# `wt new foo -- 'fix the bug'` forwards the message as Claude's initial
+# prompt; `wt new foo` just opens Claude. Skips outside a zellij session.
+[post-start]
+zellij = """
+if [ -n "$ZELLIJ" ]; then
+  zellij action new-tab --name {{ branch | sanitize }} --cwd {{ worktree_path }} -- claude {{ vars.msg | default('') }}
+fi
+"""
