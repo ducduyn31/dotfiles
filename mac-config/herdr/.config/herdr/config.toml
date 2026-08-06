@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 prefix = "ctrl+m"
 
@@ -9,3 +10,6 @@ agent_panel_sort = "spaces"
 key = "prefix+f"
 type = "shell"
 command = "herdr plugin action invoke open-file-viewer --plugin herdr-file-viewer"
+
+[ui.toast]
+delivery = "terminal"

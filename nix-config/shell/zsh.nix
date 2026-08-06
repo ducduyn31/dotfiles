@@ -75,6 +75,11 @@
         eval "$(herdr completion zsh)"
       fi
 
+      # Set up worktrunk shell integration (enables wt to cd the shell)
+      if command -v wt &> /dev/null; then
+        eval "$(wt config shell init zsh)"
+      fi
+
       # Set up volta — strip resolved tool paths so shims take priority
       # (volta injects tools/image paths when launching node apps like Claude Code)
       if command -v volta &> /dev/null; then
