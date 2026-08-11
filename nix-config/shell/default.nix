@@ -16,7 +16,6 @@
       jqp
       fzf # Fuzzy finder
       inetutils
-      lazygit
       lazydocker
       gh
       coreutils
