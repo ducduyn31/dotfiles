@@ -3,8 +3,19 @@
 # `wt switch`'s own `-- args` only feeds `--execute`, not hooks, so the
 # message is stashed as a per-branch var before creation; the post-start
 # hook (which does have proper template vars) picks it up from there.
+#
+# Usage: wt new <branch> [message] [switch flags...]
+# The second argument is the message only when it isn't a flag, so
+# `wt new foo --base develop` forwards --base to `wt switch` instead of
+# stashing it as the message (which would then be passed to claude).
+# Flags are emitted one at a time: each `{{ }}` is shell-escaped
+# separately, so joining them would produce a single quoted blob.
 [aliases]
-new = "wt config state vars set msg={{ args[1] | default('') }} --branch={{ args[0] }} && wt switch --create {{ args[0] }}"
+new = """
+{%- set has_msg = args | length > 1 and not args[1] is startingwith('-') -%}
+wt config state vars set msg={% if has_msg %}{{ args[1] }}{% endif %} --branch={{ args[0] }} \
+  && wt switch --create {{ args[0] }}{% for arg in (args[2:] if has_msg else args[1:]) %} {{ arg }}{% endfor %}
+"""
 
 # New worktree -> new zellij tab, cd'd in, running Claude Code.
 # `wt new foo -- 'fix the bug'` forwards the message as Claude's initial
