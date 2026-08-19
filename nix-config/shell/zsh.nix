@@ -25,6 +25,12 @@
       # homebrew share path
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
 
+      # Zellij session sockets live under $TMPDIR, which on macOS is a long
+      # /var/folders/... path. That leaves only 24 characters for the session
+      # name before the AF_UNIX sun_path limit (103 bytes) is hit, and zellij
+      # silently fails to create the session. Use a short dir instead.
+      export ZELLIJ_SOCKET_DIR="$HOME/.cache/zellij-sock"
+
       # Fix volta in Claude Code sessions (non-interactive login shell)
       # Volta sets _VOLTA_TOOL_RECURSION and injects tools/image paths when launching
       # node apps, which bypasses shim-based per-project version resolution
