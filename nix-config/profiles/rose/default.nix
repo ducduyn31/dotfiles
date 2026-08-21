@@ -163,6 +163,7 @@ with inputs;
 
                   # Nix
                   nixd
+                  statix
 
                   # Infrastructure
                   awscli2
