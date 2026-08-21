@@ -9,7 +9,7 @@
     username = globals.user;
     homeDirectory =
       builtins.toPath (
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then "/Users"
         else "/home"
       )
