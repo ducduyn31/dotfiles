@@ -7,6 +7,7 @@
       "opencode"
       "ripgrep" # required by opencode
       "datadog-labs/pack/pup"
+      "mole" # mac deep clean/optimize CLI
 
       # dependencies
       "pkg-config"
