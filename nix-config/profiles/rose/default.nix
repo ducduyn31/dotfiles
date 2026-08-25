@@ -26,6 +26,15 @@ with inputs;
           (final: prev: {
             worktrunk = prev.worktrunk.overrideAttrs (_: {doCheck = false;});
           })
+          # tmux 3.7's configure refuses to run on macOS unless jemalloc is
+          # explicitly enabled or disabled. nixpkgs master already passes
+          # --enable-jemalloc; drop this once that reaches unstable.
+          (final: prev: {
+            tmux = prev.tmux.overrideAttrs (old: {
+              buildInputs = old.buildInputs ++ [final.jemalloc];
+              configureFlags = old.configureFlags ++ ["--enable-jemalloc"];
+            });
+          })
         ];
 
         # Drop both when nix-darwin fixes it upstream.
