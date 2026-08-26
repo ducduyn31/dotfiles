@@ -52,13 +52,6 @@ with inputs;
               [engine]
               helper_binaries_dir = ["${pkgs.gvproxy}/bin"]
             '';
-
-            # nix-darwin's tailscale module points /etc/resolver/ts.net at the
-            # store. tailscaled writes /etc/resolver through Go's os.Root
-            # sandbox, which rejects symlinks leaving the directory, so its
-            # whole DNS apply fails ("openat ts.net: path escapes from parent")
-            # and MagicDNS stops resolving. Let tailscaled own the file.
-            "resolver/ts.net".enable = false;
           };
         };
 
@@ -81,8 +74,6 @@ with inputs;
           hostName = globals.macHostname;
           localHostName = globals.macHostname;
         };
-
-        services.tailscale.enable = true;
 
         nix = {
           # Enable flakes
@@ -183,7 +174,6 @@ with inputs;
 
                   # Infrastructure
                   awscli2
-                  tailscale
                   openfortivpn
                   # azure-cli
                   pulumi

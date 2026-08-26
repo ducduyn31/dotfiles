@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [./zsh.nix ./bash.nix ./tmux.nix ./zellij.nix];
 
   home = {
@@ -53,6 +57,21 @@
     };
 
     sessionPath = ["$HOME/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin"];
+
+    # The Tailscale app ships its CLI inside the app bundle and only installs a
+    # /usr/local/bin shim via a GUI menu item. Same shim, declared here. It has
+    # to exec the bundled binary, not symlink it: the binary looks itself up in
+    # a bundle registry and dies ("current bundleIdentifier is unknown") when
+    # invoked under any other path.
+    file = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+      ".local/bin/tailscale" = {
+        executable = true;
+        text = ''
+          #!/bin/sh
+          exec /Applications/Tailscale.app/Contents/MacOS/Tailscale "$@"
+        '';
+      };
+    };
 
     sessionVariables = {
       GO111MODULE = "on";

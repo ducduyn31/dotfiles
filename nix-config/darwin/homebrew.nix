@@ -63,6 +63,7 @@
       "Apple Configurator" = 1037126344;
       "PDFgear" = 6469021132;
       "Goodnotes" = 1444383602;
+      "Tailscale" = 1475387142;
     };
     taps = [
       # custom
