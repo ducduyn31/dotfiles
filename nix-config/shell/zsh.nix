@@ -29,7 +29,7 @@
       # /var/folders/... path. That leaves only 24 characters for the session
       # name before the AF_UNIX sun_path limit (103 bytes) is hit, and zellij
       # silently fails to create the session. Use a short dir instead.
-      export ZELLIJ_SOCKET_DIR="$HOME/.cache/zellij-sock"
+      export ZELLIJ_SOCKET_DIR="/tmp/zellij"
 
       # Fix volta in Claude Code sessions (non-interactive login shell)
       # Volta sets _VOLTA_TOOL_RECURSION and injects tools/image paths when launching
@@ -79,6 +79,11 @@
       # Set up herdr completion
       if command -v herdr &> /dev/null; then
         eval "$(herdr completion zsh)"
+      fi
+
+      # Set up tailscale completion
+      if command -v tailscale &> /dev/null; then
+        eval "$(tailscale completion zsh)"
       fi
 
       # Set up worktrunk shell integration (enables wt to cd the shell)
