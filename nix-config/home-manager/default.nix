@@ -1,1 +1,1 @@
-{...}: {imports = [./git.nix ./lazygit.nix];}
+{...}: {imports = [./git.nix ./lazygit.nix ./music.nix];}
