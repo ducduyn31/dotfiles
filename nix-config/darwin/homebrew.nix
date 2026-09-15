@@ -21,7 +21,7 @@
       "redis/tap/riot"
     ];
     casks = [
-      # "hammerspoon"
+      "hammerspoon"
       # "the-unarchiver"
       "nikitabobko/tap/aerospace" # tiling window manager
       # "spotify"
